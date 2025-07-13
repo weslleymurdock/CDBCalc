@@ -27,6 +27,9 @@ jobs:
     - name: Restore
       run: dotnet restore CDBCalc.sln
  
+    - name: Restore .NET tools
+      run: dotnet tool restore
+
     - name: Test
       run: |
           dotnet test "tests/unit/Application/CDBCalculator.Application.UnitTests/CDBCalculator.Application.UnitTests.csproj" 
