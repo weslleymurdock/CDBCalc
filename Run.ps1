@@ -135,7 +135,7 @@ if ($RunMode -eq "Test") {
         # Etapa 2: Executar testes com cobertura
         Write-Host "[2] Executando testes com cobertura..."
         try {
-            dotnet msbuild $proj -target:Test
+            dotnet test $proj 
         } catch {
             Write-Host " [!] Falha ao executar testes em $proj. Pulando para o proximo."
             continue

@@ -26,9 +26,14 @@ jobs:
 
     - name: Restore
       run: dotnet restore CDBCalc.sln
-
-    - name: Build and Test
-      run: dotnet build CDBCalc.sln --configuration Release
+ 
+    - name: Test
+      run: |
+          dotnet test "tests/unit/Application/CDBCalculator.Application.UnitTests/CDBCalculator.Application.UnitTests.csproj" 
+          dotnet test "tests/unit/Domain/CDBCalculator.Domain.UnitTests/CDBCalculator.Domain.UnitTests.csproj"
+          dotnet test "tests/unit/Infrastructure/CDBCalculator.Infrastructure.UnitTests/CDBCalculator.Infrastructure.UnitTests.csproj"
+          dotnet test "tests/unit/MicroServices/CDBCalculator.MicroService.UnitTests/CDBCalculator.MicroService.UnitTests.csproj"
+          dotnet test "tests/unit/ApiGateway/CDBCalculator.ApiGateway.UnitTests/CDBCalculator.ApiGateway.UnitTests.csproj"
 
     - name: Generate Coverage Report + Badge
       run: |
@@ -51,6 +56,9 @@ jobs:
     needs: test
     if: github.event_name == 'push'
     steps:
+    - name: Checkout repo
+      uses: actions/checkout@v4
+
     - name: Download coverage report
       uses: actions/download-artifact@v4
       with:
