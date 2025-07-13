@@ -41,7 +41,7 @@ jobs:
     - name: Generate Coverage Report + Badge
       run: |
         mkdir -p reports
-        reportgenerator \
+        dotnet reportgenerator \
           -reports:"tests/unit/**/**/TestResults/coverage.xml" \
           -targetdir:"reports" \
           -reporttypes:"Html;TextSummary;Badge" \
