@@ -1,0 +1,29 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <!-- Garante que o contexto de compilação seja preservado para testes funcionais -->
+    <PreserveCompilationContext>true</PreserveCompilationContext>
+
+    <!-- Caso o ReportTitle não esteja definido, usa nome do projeto como fallback -->
+    <ReportTitle Condition="'$(ReportTitle)' == ''">$(MSBuildProjectName)</ReportTitle>
+  </PropertyGroup>
+
+  <Target Name="EnsureReportToolInstalled" BeforeTargets="Test">
+    <!-- Verifica se a ferramenta está instalada globalmente -->
+    <Exec Command="dotnet tool list -g | findstr reportgenerator" IgnoreExitCode="true" ContinueOnError="true" />
+    
+    <!-- Instala se não estiver -->
+    <Exec Condition="'$(REPORTGENERATOR_INSTALLED)' != 'true'" 
+          Command="dotnet tool install --global dotnet-reportgenerator-globaltool" 
+          ContinueOnError="true" />
+  </Target>
+
+  <Target Name="GenerateCoverageReport" AfterTargets="Test">
+    <!-- Gera o relatório da cobertura apenas da camada testada -->
+    <Exec Command="reportgenerator ^
+        -reports:$(MSBuildProjectDirectory)\TestResults\**\coverage.cobertura.xml ^
+        -targetdir:$(MSBuildProjectDirectory)\CoverageReport ^
+        -reporttypes:Html ^
+        -title:$(ReportTitle) ^
+        -assemblyfilters:+$(MSBuildProjectName)" />
+  </Target>
+</Project>

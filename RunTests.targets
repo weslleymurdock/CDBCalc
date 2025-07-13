@@ -1,0 +1,7 @@
+<Target Name="RunTests" DependsOnTargets="Build">
+  <MSBuild Projects="tests/unit/Application/CDBCalculator.Application.UnitTests.csproj" Targets="Test" />
+  <MSBuild Projects="tests/unit/Domain/CDBCalculator.Domain.UnitTests.csproj" Targets="Test" />
+  <MSBuild Projects="tests/unit/Infrastructure/CDBCalculator.Infrastructure.UnitTests.csproj" Targets="Test" />
+  <MSBuild Projects="tests/unit/MicroServices/CDBCalculator.Microservice.UnitTests.csproj" Targets="Test" />
+  <MSBuild Projects="tests/unit/ApiGateway/CDBCalculator.ApiGateway.UnitTests.csproj" Targets="Test" />
+</Target>

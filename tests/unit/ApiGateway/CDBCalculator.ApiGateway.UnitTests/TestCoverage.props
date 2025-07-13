@@ -1,0 +1,8 @@
+﻿<Project>
+  <PropertyGroup> 
+    <CollectCoverage>true</CollectCoverage>
+    <CoverletOutputFormat>cobertura</CoverletOutputFormat>
+    <CoverletOutput>$(MSBuildProjectDirectory)\TestResults\coverage.xml</CoverletOutput>
+    <UseSourceLink>true</UseSourceLink>
+  </PropertyGroup>
+</Project>

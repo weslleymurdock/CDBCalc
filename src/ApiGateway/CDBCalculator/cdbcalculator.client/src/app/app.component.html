@@ -1,0 +1,64 @@
+<header class="b3-header d-flex justify-content-between align-items-center flex-wrap">
+  <img src="B3.png" alt="Logo B3" class="img-fluid" />
+  <h1 class="ms-3">Simulador de CDB</h1>
+</header>
+
+<main class="d-flex justify-content-center align-items-center vh-100">
+  <div class="col-md-6">
+    <div class="card shadow p-4">
+      <h2 class="text-center mb-4 text-primary">Simulação de CDB</h2>
+
+      <form #cdbForm="ngForm" (ngSubmit)="simulate()">
+        <div class="mb-3">
+          <label for="months" class="form-label">Meses (≥ 1):</label>
+          <input type="number"
+                 id="months"
+                 name="months"
+                 [(ngModel)]="months"
+                 #monthsModel="ngModel"
+                 min="1"
+                 required
+                 class="form-control" />
+
+          <div *ngIf="monthsModel.invalid && monthsModel.touched" class="text-danger small mt-1">
+            <div *ngIf="monthsModel.errors?.['required']">Este campo é obrigatório.</div>
+            <div *ngIf="monthsModel.errors?.['min']">Informe pelo menos 1 mês.</div>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="initialValue" class="form-label">Valor Inicial (R$):</label>
+          <input type="number"
+                 id="initialValue"
+                 name="initialValue"
+                 [(ngModel)]="initialValue"
+                 #initValueModel="ngModel"
+                 min="0.01"
+                 step="1.00"
+                 required
+                 class="form-control" />
+
+          <div *ngIf="initValueModel.invalid && initValueModel.touched" class="text-danger small mt-1">
+            <div *ngIf="initValueModel.errors?.['required']">
+              Este campo é obrigatório.
+            </div>
+            <div *ngIf="initValueModel.errors?.['min']">Informe um valor maior que R$ 0,01.</div>
+          </div>
+        </div>
+
+        <div class="text-center">
+          <button class="btn btn-primary w-100" type="submit" [disabled]="!cdbForm.valid">
+            Simular
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</main>
+<app-modal-cdb *ngIf="showModal"
+               [grossFormatted]="formatCurrency(gross)"
+               [netFormatted]="formatCurrency(net)"
+               [isSuccess]="isSuccess"
+               [message]="message"
+               (closed)="closeModal()">
+</app-modal-cdb>

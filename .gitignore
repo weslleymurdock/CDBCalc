@@ -52,3 +52,12 @@ CodeCoverage/
 *.VisualState.xml
 TestResult.xml
 nunit-*.xml
+/.vs/CDBCalc
+
+# Docker
+**/.dockerignore
+**/.env
+/reports
+/src/ApiGateway/CDBCalculator/CDBCalculator.Server/wwwroot
+/tests/unit/MicroServices/CDBCalculator.MicroService.UnitTests/CoverageReport
+/src/ApiGateway/CDBCalculator/cdbcalculator.client/spa_build_stdout.log

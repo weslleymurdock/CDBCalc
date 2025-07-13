@@ -1,0 +1,90 @@
+﻿using Application.CQRS.Requests.Commands;
+using Application.CQRS.Responses.CDBCalculator;
+using CDBController = CDBCalculator.Controllers.CDBController;
+using MediatR;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using Moq;
+
+namespace CDBCalculator.MicroService.UnitTests.ControllersTests.CDBControllerTests;
+
+public class CDBControllerTests
+{
+    private readonly Mock<ILogger<CDBController>> _loggerMock = new();
+    private readonly Mock<IMediator> _mediatorMock = new();
+
+    private CDBController CreateController() =>
+        new(_loggerMock.Object, _mediatorMock.Object);
+
+    [Theory]
+    [InlineData(200, typeof(OkObjectResult))]
+    [InlineData(400, typeof(BadRequestObjectResult))]
+    [InlineData(422, typeof(UnprocessableEntityObjectResult))]
+    [InlineData(500, typeof(ContentResult))]
+    public async Task Simulate_ReturnsExpectedResponse(int statusCode, Type expectedResultType)
+    {
+        var response = new SimulateCDBResponse { StatusCode = statusCode, Message = "Mensagem", Success = false };
+        _mediatorMock
+            .Setup(m => m.Send(It.IsAny<SimulateCDBCommand>(), default))
+            .ReturnsAsync(response);
+
+        var controller = CreateController();
+        var result = await controller.Simulate(6, 1000.0);
+
+        Assert.IsType(expectedResultType, result);
+    }
+
+    [Fact]
+    public async Task Simulate_WhenExceptionThrown_Returns500ContentResult()
+    {
+        _mediatorMock
+            .Setup(m => m.Send(It.IsAny<SimulateCDBCommand>(), default))
+            .ThrowsAsync(new InvalidOperationException("Falhou"));
+
+        var controller = CreateController();
+        var result = await controller.Simulate(6, 1000.0);
+
+        var contentResult = Assert.IsType<ContentResult>(result);
+        Assert.Equal(500, contentResult.StatusCode);
+        Assert.Equal("Falhou", contentResult.Content);
+    }
+    
+    [Fact]
+    public async Task Simulate_WithUnexpectedStatusCode_ReturnsCustomContentResult()
+    {
+        var response = new SimulateCDBResponse
+        {
+            StatusCode = 418,
+            Message = "Sou um bule de chá",
+            Success = false
+        };
+
+        _mediatorMock
+            .Setup(m => m.Send(It.IsAny<SimulateCDBCommand>(), default))
+            .ReturnsAsync(response);
+
+        var controller = CreateController();
+        var result = await controller.Simulate(6, 1000.0);
+
+        var content = Assert.IsType<ContentResult>(result);
+        Assert.Equal(418, content.StatusCode);
+        Assert.Equal("Sou um bule de chá", content.Content);
+    }
+
+    [Fact]
+    public async Task Simulate_WhenResponseIsNull_ReturnsEmptyContentResult()
+    {
+#pragma warning disable CS8620 // O argumento não pode ser usado para o parâmetro devido a diferenças na nulidade dos tipos de referência.
+        _mediatorMock
+            .Setup(m => m.Send(It.IsAny<SimulateCDBCommand>(), default))
+            .ReturnsAsync((SimulateCDBResponse?)null);
+#pragma warning restore CS8620 // O argumento não pode ser usado para o parâmetro devido a diferenças na nulidade dos tipos de referência.
+
+        var controller = CreateController();
+        var result = await controller.Simulate(6, 1000.0);
+
+        var content = Assert.IsType<ContentResult>(result);
+        Assert.NotNull(content.Content); 
+    }
+
+}

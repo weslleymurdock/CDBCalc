@@ -1,0 +1,38 @@
+:root {
+  --b3-blue: #005aa9;
+  --b3-blue-dark: #004080;
+  --gov-yellow: #fdd835;
+  --gov-yellow-light: #fef9e7;
+  --gov-font: 'Segoe UI', 'Roboto', sans-serif;
+}
+
+body {
+  background-color: var(--b3-blue);
+  font-family: var(--gov-font);
+  margin: 0;
+}
+
+.b3-header {
+  background-color: var(--gov-yellow);
+  color: #000;
+  flex-wrap: wrap;
+}
+  .b3-header img {
+    height: 40px;
+    object-fit: contain;
+  }
+
+.card {
+  background-color: var(--gov-yellow-light);
+  border: none;
+}
+
+.btn-primary {
+  background-color: var(--b3-blue);
+  border-color: var(--b3-blue);
+}
+
+  .btn-primary:hover {
+    background-color: var(--b3-blue-dark);
+    border-color: var(--b3-blue-dark);
+  }

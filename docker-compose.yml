@@ -1,0 +1,15 @@
+services:
+  cdbcalculator.server:
+    image: ${DOCKER_REGISTRY-}cdbcalculatorserver
+    build:
+      context: .
+      dockerfile: src/ApiGateway/CDBCalculator/CDBCalculator.Server/Dockerfile
+    container_name: cdbcalculator.apigateway
+
+  cdbcalculator:
+    image: ${DOCKER_REGISTRY-}cdbcalculator
+    build:
+      context: ..
+      dockerfile: CDBCalc/src/MicroServices/CDBCalculator/Dockerfile
+    container_name: cdbcalculator.microservice
+ 
