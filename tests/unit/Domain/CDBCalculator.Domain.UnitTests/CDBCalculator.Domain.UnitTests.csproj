@@ -30,9 +30,6 @@
   </ItemGroup>
   
   <Import Project="TestCoverage.props" /> <!-- keep here -->
-
-  <Target Name="Test" DependsOnTargets="Build" AfterTargets="Build">
-    <Exec Command="dotnet test --no-build" />
-  </Target>
+ 
 
 </Project>

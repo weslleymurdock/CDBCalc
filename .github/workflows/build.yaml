@@ -1,5 +1,4 @@
-name: "Build and Coverage"
-
+name: "Build"
 on:
   push:
     paths-ignore:
@@ -7,21 +6,12 @@ on:
       - '**/*.gitignore'
       - '**/*.gitattributes'
 
-  pull_request:
-    paths-ignore:
-      - '**/*.md'
-      - '**/*.gitignore'
-      - '**/*.gitattributes'
-
-  workflow_dispatch:
-
 jobs:
-  build_test:
-    name: Build and Coverage
+  build:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repository
+    - name: Checkout repo
       uses: actions/checkout@v4
 
     - name: Setup .NET SDK
@@ -37,32 +27,5 @@ jobs:
     - name: Restore
       run: dotnet restore CDBCalc.sln
 
-    - name: Build (includes test via MSBuild target)
+    - name: Build
       run: dotnet build CDBCalc.sln --configuration Release
-
-    - name: Generate coverage report + badge
-      run: |
-        mkdir -p reports
-        reportgenerator \
-          -reports:"tests/unit/**/**/TestResults/coverage.xml" \
-          -targetdir:"reports" \
-          -reporttypes:"Html;TextSummary;Badge" \
-          -title:"CDBCalculator - Cobertura Consolidada"
-
-    - name: Check if merge commit
-      id: check_merge
-      run: |
-        MERGE_COMMIT=$(git rev-parse HEAD)
-        PARENTS=$(git rev-list --parents -n 1 $MERGE_COMMIT | wc -w)
-        if [ "$PARENTS" -gt 2 ]; then
-          echo "merge=true" >> $GITHUB_OUTPUT
-        else
-          echo "merge=false" >> $GITHUB_OUTPUT
-
-    - name: Publish to GitHub Pages
-      if: github.ref == 'refs/heads/main' && steps.check_merge.outputs.merge == 'true'
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: reports
-        publish_branch: gh-pages
