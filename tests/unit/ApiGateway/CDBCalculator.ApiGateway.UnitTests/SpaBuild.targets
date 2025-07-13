@@ -27,8 +27,8 @@
 
     <!-- Execução dos comandos Angular com diretório fixo e log output -->
     <Exec WorkingDirectory="$(SpaClientRoot)" Command="npm install" />
-    <Exec WorkingDirectory="$(SpaClientRoot)"
-          Command="cmd /c npx ng build --configuration=production > spa_build_stdout.log 2> spa_build_stderr.log" />
+    <Exec WorkingDirectory="$(SpaClientRoot)" Command="npx ng build --configuration=production > spa_build_stdout.log 2> spa_build_stderr.log" />
+
     <Message Importance="High" Text="SPA build concluído. Verifique spa_build_stdout.log e spa_build_stderr.log em $(SpaClientRoot)" />
    
     <!-- Copiar os arquivos da SPA de browser/ para wwwroot diretamente -->
