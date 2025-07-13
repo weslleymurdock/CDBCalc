@@ -35,7 +35,7 @@ jobs:
         node-version: 20.x
 
     - name: Restore
-      run: dotnet restore
+      run: dotnet restore CDBCalc.sln
 
     - name: Build
       run: dotnet build --configuration Release
@@ -61,7 +61,7 @@ jobs:
         node-version: 20.x
 
     - name: Restore
-      run: dotnet restore
+      run: dotnet restore CDBCalc.sln
 
     - name: Run tests with coverage
       run: |
