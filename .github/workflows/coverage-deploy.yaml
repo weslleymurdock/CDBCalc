@@ -38,13 +38,13 @@ jobs:
           dotnet test "tests/unit/MicroServices/CDBCalculator.MicroService.UnitTests/CDBCalculator.MicroService.UnitTests.csproj"
           dotnet test "tests/unit/ApiGateway/CDBCalculator.ApiGateway.UnitTests/CDBCalculator.ApiGateway.UnitTests.csproj"
 
-    - name: Generate Coverage Report + Badge
+    - name: Generate Coverage Report  
       run: |
         mkdir -p reports
         dotnet reportgenerator \
           -reports:"tests/unit/**/**/TestResults/coverage.xml" \
           -targetdir:"reports" \
-          -reporttypes:"Html;TextSummary;Badge" \
+          -reporttypes:"Html;TextSummary" \
           -title:"CDBCalculator - Cobertura Consolidada"
 
     - name: Save Coverage Report as Artifact
