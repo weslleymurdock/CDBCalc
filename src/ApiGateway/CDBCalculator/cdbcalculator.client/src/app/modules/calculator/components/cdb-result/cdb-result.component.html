@@ -1,0 +1,35 @@
+<div class="card shadow-sm equal-height p-4">
+  <h4 class="mb-3 text-center">Resultado</h4>
+
+  <div *ngIf="!result" class="result-card-warning text-center">
+    Nenhuma simulação realizada ainda.
+  </div>
+
+
+  <div *ngIf="result">
+    <div class="card result-card-error shadow-sm p-4" *ngIf="!result.success">
+      {{ result.message }}
+    </div>
+
+    <div class="card result-card-success shadow-sm p-4" *ngIf="result.success">
+      <div class="mb-3">
+        <label for="gross" class="form-label fw-bold">Valor Bruto:</label>
+        <p id="gross" class="form-control-plaintext text-success fs-5">
+          {{ formatCurrency(result.gross) }}
+        </p>
+      </div>
+      <div class="mb-3">
+        <label for="net" class="form-label fw-bold">Valor Líquido:</label>
+        <p id="net" class="form-control-plaintext text-primary fs-5">
+          {{ formatCurrency(result.net) }}
+        </p>
+      </div>
+    </div>
+
+    <div class="text-center mt-3">
+      <button class="btn btn-outline-secondary" (click)="onClear.emit()">
+        Limpar resultados
+      </button>
+    </div>
+  </div>
+</div>

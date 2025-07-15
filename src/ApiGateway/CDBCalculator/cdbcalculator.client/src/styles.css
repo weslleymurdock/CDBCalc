@@ -3,6 +3,9 @@
   --b3-blue-dark: #004080;
   --gov-yellow: #fdd835;
   --gov-yellow-light: #fef9e7;
+  --gov-yellow-soft: #fffbe6;
+  --gov-yellow-border: #ffeb99;
+  --gov-yellow-accent: #ffe066;
   --gov-font: 'Segoe UI', 'Roboto', sans-serif;
 }
 
@@ -10,22 +13,67 @@ body {
   background-color: var(--b3-blue);
   font-family: var(--gov-font);
   margin: 0;
+  min-height: 100vh;
+  padding: 0;
+}
+.container {
+  background-color: transparent;
+}
+
+.row {
+  background-color: transparent;
 }
 
 .b3-header {
   background-color: var(--gov-yellow);
   color: #000;
-  flex-wrap: wrap;
+  padding: 0.75rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1rem;
 }
+
   .b3-header img {
     height: 40px;
     object-fit: contain;
+    margin-right: 1rem;
   }
 
 .card {
-  background-color: var(--gov-yellow-light);
-  border: none;
+  background-color: var(--gov-yellow-soft);
+  border: 1px solid var(--gov-yellow-border);
+  border-radius: 0.75rem;
 }
+
+.result-card-success {
+  background-color: var(--gov-yellow-light);
+  border-left: 4px solid var(--gov-yellow);
+}
+
+.result-card-error {
+  background-color: #ffe6e6;
+  border-left: 4px solid #e53935;
+}
+
+.result-card-warning {
+  background-color: var(--gov-yellow-soft); 
+  border-left: 4px solid var(--gov-yellow); 
+  color: #4a4a00; 
+  padding: 1rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+}
+
+.btn-outline-warning {
+  color: #b8860b;
+  border-color: var(--gov-yellow-accent);
+}
+
+  .btn-outline-warning:hover {
+    background-color: var(--gov-yellow-accent);
+    color: #000;
+  }
 
 .btn-primary {
   background-color: var(--b3-blue);
@@ -36,3 +84,14 @@ body {
     background-color: var(--b3-blue-dark);
     border-color: var(--b3-blue-dark);
   }
+
+@media (min-width: 600px) {
+  .card.equal-height {
+    min-height: 480px; /* Altura mínima igual para ambos */
+  }
+
+  .col-md-5.custom-width {
+    flex: 0 0 48%;
+    max-width: 48%;
+  }
+}

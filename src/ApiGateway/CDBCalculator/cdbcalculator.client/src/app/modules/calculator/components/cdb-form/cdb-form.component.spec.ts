@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ModalCdbComponent } from './modal-cdb.component';
+import { CdbFormComponent } from './cdb-form.component';
 
-describe('ModalCdbComponent', () => {
-  let component: ModalCdbComponent;
-  let fixture: ComponentFixture<ModalCdbComponent>;
+describe('CdbFormComponent', () => {
+  let component: CdbFormComponent;
+  let fixture: ComponentFixture<CdbFormComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ModalCdbComponent]
+      declarations: [CdbFormComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ModalCdbComponent);
+    fixture = TestBed.createComponent(CdbFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
