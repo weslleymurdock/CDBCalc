@@ -64,3 +64,4 @@ nunit-*.xml
 /.vs/slnx.sqlite
 /.vs/ProjectEvaluation
 *.log
+/tests/unit/ApiGateway/CDBCalculator.ApiGateway.UnitTests/wwwroot

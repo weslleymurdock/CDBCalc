@@ -1,7 +1,11 @@
 namespace CDBCalculator;
 
-public static class Program
+public class Program
 {
+    protected Program()
+    {
+        
+    }
     private static void Main(string[] args)
     {
         CreateHostBuilder(args).Build().Run();

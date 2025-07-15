@@ -157,7 +157,7 @@ if ($RunMode -eq "Test") {
     reportgenerator `
       -reports:"tests\unit\**\**\TestResults\coverage.xml" `
       -targetdir:$reportDir `
-      -reporttypes:Html;HtmlSummary; `
+      -reporttypes:Html `
       -title:"CDBCalculator - Cobertura Consolidada" `  
  
     Write-Host ""

@@ -3,8 +3,12 @@ using Microsoft.Extensions.Hosting;
 
 namespace CDBCalculator.Server;
 
-public static class Program
+public class Program
 {
+    protected Program()
+    {
+        
+    }
     public static void Main(string[] args)
     {
         CreateHostBuilder(args).Build().Run();

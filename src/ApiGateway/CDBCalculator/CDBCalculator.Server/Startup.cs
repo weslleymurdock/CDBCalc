@@ -56,7 +56,7 @@ public class Startup(IConfiguration config, IWebHostEnvironment env)
         {
             endpoints.MapControllers();
             endpoints.MapReverseProxy();
-            endpoints.MapFallbackToFile("/index.html");
+            endpoints.MapFallbackToFile("index.html");
         });
 
         app.UseSpa(spa =>

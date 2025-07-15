@@ -74,11 +74,10 @@ public class CDBControllerTests
     [Fact]
     public async Task Simulate_WhenResponseIsNull_ReturnsEmptyContentResult()
     {
-#pragma warning disable CS8620 // O argumento não pode ser usado para o parâmetro devido a diferenças na nulidade dos tipos de referência.
+
         _mediatorMock
-            .Setup(m => m.Send(It.IsAny<SimulateCdbCommand>(), default))
+            .Setup(m => m.Send<SimulateCdbResponse?>(It.IsAny<SimulateCdbCommand>(), It.IsAny<CancellationToken>()))
             .ReturnsAsync((SimulateCdbResponse?)null);
-#pragma warning restore CS8620 // O argumento não pode ser usado para o parâmetro devido a diferenças na nulidade dos tipos de referência.
 
         var controller = CreateController();
         var result = await controller.Simulate(6, 1000.0);
