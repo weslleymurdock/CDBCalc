@@ -1,0 +1,17 @@
+[
+  {
+    "Name": "Novo Perfil",
+    "Projects": [
+      {
+        "Path": "src\\MicroServices\\CDBCalculator\\CDBCalculator.csproj",
+        "Action": "Start",
+        "DebugTarget": "CDBCalculator"
+      },
+      {
+        "Path": "src\\ApiGateway\\CDBCalculator\\CDBCalculator.Server\\CDBCalculator.Server.csproj",
+        "Action": "Start",
+        "DebugTarget": "CDBCalculator.Server"
+      }
+    ]
+  }
+]
