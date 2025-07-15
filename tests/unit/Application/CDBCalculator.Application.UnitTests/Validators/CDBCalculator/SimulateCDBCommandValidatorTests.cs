@@ -6,18 +6,18 @@ namespace CDBCalculator.Application.UnitTests.Validators.CDBCalculator;
 
 public class SimulateCDBCommandValidatorTests
 {
-    private readonly SimulateCDBCommandValidator _validator = new();
+    private readonly SimulateCdbCommandValidator _validator = new();
 
     [Fact]
     public void Validate_ShouldThrow_WhenCommandIsNull()
     {
-        Assert.Throws<InvalidOperationException>(() => _validator.Validate((SimulateCDBCommand)null!));
+        Assert.Throws<InvalidOperationException>(() => _validator.Validate((SimulateCdbCommand)null!));
     }
 
     [Fact]
     public void Validate_ShouldFail_WhenMonthsAreZero()
     {
-        var command = new SimulateCDBCommand { Months = 0, InitialValue = 1000 };
+        var command = new SimulateCdbCommand { Months = 0, InitialValue = 1000 };
         var result = _validator.Validate(command);
 
         Assert.False(result.IsValid);
@@ -27,7 +27,7 @@ public class SimulateCDBCommandValidatorTests
     [Fact]
     public void Validate_ShouldFail_WhenInitialValueIsZero()
     {
-        var command = new SimulateCDBCommand { Months = 12, InitialValue = 0.0 };
+        var command = new SimulateCdbCommand { Months = 12, InitialValue = 0.0 };
         var result = _validator.Validate(command);
 
         Assert.False(result.IsValid);
@@ -37,7 +37,7 @@ public class SimulateCDBCommandValidatorTests
     [Fact]
     public void Validate_ShouldPass_WhenCommandIsValid()
     {
-        var command = new SimulateCDBCommand { Months = 6, InitialValue = 1000.0 };
+        var command = new SimulateCdbCommand { Months = 6, InitialValue = 1000.0 };
         var result = _validator.Validate(command);
 
         Assert.True(result.IsValid);

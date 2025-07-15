@@ -2,8 +2,7 @@
 
 namespace Infrastructure.Common.Interfaces;
 
-public interface ICDBCalculator
+public interface ICdbCalculator
 {
-    public (double totalGross, double totalNet) Calculate(CDB title);
-
+    public (double totalGross, double totalNet) Calculate(Cdb title);
 }

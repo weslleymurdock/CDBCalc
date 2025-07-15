@@ -40,7 +40,7 @@ public class Startup(IConfiguration config, IWebHostEnvironment env)
         
         app.UseSwaggerUI(c =>
         {
-            c.SwaggerEndpoint("http://localhost:5002/swagger/v1/swagger.json", "CDB Calculator API");
+            c.SwaggerEndpoint(config["MicroServices:CDBCalc:Swagger:Uri"], config["MicroServices:CDBCalc:Swagger:Name"]);
             c.RoutePrefix = "swagger";
         });
 

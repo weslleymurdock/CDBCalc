@@ -6,14 +6,14 @@ namespace CDBCalculator.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-public class CDBController(ILogger<CDBController> logger, IMediator mediator) : ControllerBase
+public class CdbController(ILogger<CdbController> logger, IMediator mediator) : ControllerBase
 {
     [HttpPost("Simulate")]
     public async Task<IActionResult> Simulate([FromForm(Name = "Months")] uint months, [FromForm(Name = "InitialValue")] double initial)
     {
         try
         {
-            var request = new SimulateCDBCommand() { InitialValue = initial, Months = months };
+            var request = new SimulateCdbCommand() { InitialValue = initial, Months = months };
             var response = await mediator.Send(request);
             return response?.StatusCode switch
             {
@@ -26,7 +26,7 @@ public class CDBController(ILogger<CDBController> logger, IMediator mediator) : 
         }
         catch (Exception e)
         {
-            logger.LogError(e, e.Message);
+            logger.LogError(e, "Houve um erro: {Message}", e.Message);
             return new ContentResult() { Content = e.Message, ContentType = "text/plain", StatusCode = 500 };
         }
     }

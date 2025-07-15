@@ -62,3 +62,5 @@ nunit-*.xml
 /tests/unit/MicroServices/CDBCalculator.MicroService.UnitTests/CoverageReport
 /src/ApiGateway/CDBCalculator/cdbcalculator.client/spa_build_stdout.log
 /.vs/slnx.sqlite
+/.vs/ProjectEvaluation
+*.log

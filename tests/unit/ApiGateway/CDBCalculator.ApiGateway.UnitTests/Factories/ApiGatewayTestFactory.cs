@@ -26,7 +26,7 @@ public static class ApiGatewayTestFactory
 
     public static IHost CreateHost(string environment = "Development")
     {
-        return Program.CreateHostBuilder(new[] { $"--environment={environment}" })
+        return Program.CreateHostBuilder([$"--environment={environment}"])
             .ConfigureWebHost(builder =>
             {
                 builder.UseTestServer();

@@ -1,6 +1,6 @@
 ﻿namespace Application.CQRS.Responses.CDBCalculator;
 
-public class SimulateCDBResponse : Base.Response
+public class SimulateCdbResponse : Base.Response
 {
     public double Gross {  get; set; } 
     public double Net {  get; set; } 

@@ -1,5 +1,5 @@
 ﻿namespace Domain.Common.Exceptions.CDBCalculator;
 
-public class CDBException(string message) : Exception(message)
+public class CdbException(string message) : Exception(message)
 {
 }

@@ -1,6 +1,6 @@
 using Domain.Business.Records; 
 using Domain.Common.Exceptions.CDBCalculator;
-using InfraCalculator = Infrastructure.Services.CDBCalculator.CDBCalculator;
+using InfraCalculator = Infrastructure.Services.CDBCalculator.CdbCalculator;
 namespace CDBCalculator.Infrastructure.UnitTests.Services.CDBCalculator;
 
 public class CDBCalculatorTests
@@ -9,7 +9,7 @@ public class CDBCalculatorTests
     public void Calculate_WithValidInput_ReturnsRoundedGrossAndNetValues()
     {
         var service = new InfraCalculator();
-        var cdb = new CDB(1000.0, 6);
+        var cdb = new Cdb(1000.0, 6);
         var (gross, net) = service.Calculate(cdb);
 
         Assert.True(gross > net);
@@ -21,18 +21,18 @@ public class CDBCalculatorTests
     public void Calculate_WithZeroMonths_ThrowsCDBException()
     {
         var service = new InfraCalculator();
-        var cdb = new CDB(1000.0, 0);
+        var cdb = new Cdb(1000.0, 0);
 
-        Assert.Throws<CDBException>(() => service.Calculate(cdb));
+        Assert.Throws<CdbException>(() => service.Calculate(cdb));
     }
 
     [Fact]
     public void Calculate_WithExtremeInitialValue_ThrowsOnInvalidGross()
     {
         var service = new InfraCalculator();
-        var cdb = new CDB(double.MaxValue, 12);  // Pode ultrapassar valores finitos
+        var cdb = new Cdb(double.MaxValue, 12);  // Pode ultrapassar valores finitos
 
-        var ex = Assert.Throws<CDBException>(() => service.Calculate(cdb));
+        var ex = Assert.Throws<CdbException>(() => service.Calculate(cdb));
         Assert.Contains("grossValue", ex.Message);
     }
 
@@ -45,7 +45,7 @@ public class CDBCalculatorTests
     {
         var service = new InfraCalculator();
         var initial = 1000.0;
-        var cdb = new CDB(initial, months);
+        var cdb = new Cdb(initial, months);
         var (gross, net) = service.Calculate(cdb);
 
         var final = gross - initial;

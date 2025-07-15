@@ -16,14 +16,14 @@ export class AppComponent {
   isSuccess: boolean = true;
   message: string = '';
 
-  constructor(private http: HttpClient) { }
+  constructor(private readonly http: HttpClient) { }
 
   simulate(): void {
     const formData = new FormData();
     formData.append('Months', this.months.toString());
     formData.append('InitialValue', this.initialValue.toString());
 
-    this.http.post<any>('/cdb/CDB/Simulate', formData).subscribe({
+    this.http.post<any>('/gateway/Cdb/Simulate', formData).subscribe({
       next: res => {
         const isValid = isFinite(res?.gross) && isFinite(res?.net);
 

@@ -3,7 +3,7 @@ using Application;
 
 namespace CDBCalculator;
 
-public class Startup(IConfiguration configuration, IWebHostEnvironment env)
+public class Startup(IWebHostEnvironment env)
 {
     public void ConfigureServices(IServiceCollection services)
     {
@@ -22,12 +22,12 @@ public class Startup(IConfiguration configuration, IWebHostEnvironment env)
         {
             c.SwaggerDoc("v1", new OpenApiInfo
             {
-                Title = "Simulador de CDB",
+                Title = "Simulador de Cdb",
                 Version = "v1"
             });
         });
 
-        services.AddApplication(configuration);
+        services.AddApplication();
     }
 
     public void Configure(IApplicationBuilder app)
@@ -43,7 +43,7 @@ public class Startup(IConfiguration configuration, IWebHostEnvironment env)
 
         app.UseSwaggerUI(c =>
         {
-            c.SwaggerEndpoint("/swagger/v1/swagger.json", "CDB Calculator API");
+            c.SwaggerEndpoint("/swagger/v1/swagger.json", "Cdb Calculator API");
         });
 
         app.UseRouting();

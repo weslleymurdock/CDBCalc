@@ -1,6 +1,6 @@
 ﻿using Application.CQRS.Requests.Commands;
 using Application.CQRS.Responses.CDBCalculator;
-using CDBController = CDBCalculator.Controllers.CDBController;
+using CdbController = CDBCalculator.Controllers.CdbController;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -10,10 +10,10 @@ namespace CDBCalculator.MicroService.UnitTests.ControllersTests.CDBControllerTes
 
 public class CDBControllerTests
 {
-    private readonly Mock<ILogger<CDBController>> _loggerMock = new();
+    private readonly Mock<ILogger<CdbController>> _loggerMock = new();
     private readonly Mock<IMediator> _mediatorMock = new();
 
-    private CDBController CreateController() =>
+    private CdbController CreateController() =>
         new(_loggerMock.Object, _mediatorMock.Object);
 
     [Theory]
@@ -23,9 +23,9 @@ public class CDBControllerTests
     [InlineData(500, typeof(ContentResult))]
     public async Task Simulate_ReturnsExpectedResponse(int statusCode, Type expectedResultType)
     {
-        var response = new SimulateCDBResponse { StatusCode = statusCode, Message = "Mensagem", Success = false };
+        var response = new SimulateCdbResponse { StatusCode = statusCode, Message = "Mensagem", Success = false };
         _mediatorMock
-            .Setup(m => m.Send(It.IsAny<SimulateCDBCommand>(), default))
+            .Setup(m => m.Send(It.IsAny<SimulateCdbCommand>(), default))
             .ReturnsAsync(response);
 
         var controller = CreateController();
@@ -38,7 +38,7 @@ public class CDBControllerTests
     public async Task Simulate_WhenExceptionThrown_Returns500ContentResult()
     {
         _mediatorMock
-            .Setup(m => m.Send(It.IsAny<SimulateCDBCommand>(), default))
+            .Setup(m => m.Send(It.IsAny<SimulateCdbCommand>(), default))
             .ThrowsAsync(new InvalidOperationException("Falhou"));
 
         var controller = CreateController();
@@ -52,7 +52,7 @@ public class CDBControllerTests
     [Fact]
     public async Task Simulate_WithUnexpectedStatusCode_ReturnsCustomContentResult()
     {
-        var response = new SimulateCDBResponse
+        var response = new SimulateCdbResponse
         {
             StatusCode = 418,
             Message = "Sou um bule de chá",
@@ -60,7 +60,7 @@ public class CDBControllerTests
         };
 
         _mediatorMock
-            .Setup(m => m.Send(It.IsAny<SimulateCDBCommand>(), default))
+            .Setup(m => m.Send(It.IsAny<SimulateCdbCommand>(), default))
             .ReturnsAsync(response);
 
         var controller = CreateController();
@@ -76,8 +76,8 @@ public class CDBControllerTests
     {
 #pragma warning disable CS8620 // O argumento não pode ser usado para o parâmetro devido a diferenças na nulidade dos tipos de referência.
         _mediatorMock
-            .Setup(m => m.Send(It.IsAny<SimulateCDBCommand>(), default))
-            .ReturnsAsync((SimulateCDBResponse?)null);
+            .Setup(m => m.Send(It.IsAny<SimulateCdbCommand>(), default))
+            .ReturnsAsync((SimulateCdbResponse?)null);
 #pragma warning restore CS8620 // O argumento não pode ser usado para o parâmetro devido a diferenças na nulidade dos tipos de referência.
 
         var controller = CreateController();

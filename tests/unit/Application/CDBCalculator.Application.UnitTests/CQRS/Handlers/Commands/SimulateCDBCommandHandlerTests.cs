@@ -11,21 +11,21 @@ namespace CDBCalculator.Application.UnitTests.CQRS.Handlers.Commands;
 
 public class SimulateCDBCommandHandlerTests
 {
-    private readonly Mock<ILogger<SimulateCDBCommandHandler>> _loggerMock = new();
-    private readonly Mock<IValidator<SimulateCDBCommand>> _validatorMock = new();
-    private readonly Mock<ICDBCalculator> _simulatorMock = new();
+    private readonly Mock<ILogger<SimulateCdbCommandHandler>> _loggerMock = new();
+    private readonly Mock<IValidator<SimulateCdbCommand>> _validatorMock = new();
+    private readonly Mock<ICdbCalculator> _simulatorMock = new();
 
-    private SimulateCDBCommandHandler CreateHandler() =>
+    private SimulateCdbCommandHandler CreateHandler() =>
         new(_loggerMock.Object, _validatorMock.Object, _simulatorMock.Object);
 
     [Fact]
     public async Task Handle_ShouldReturnSuccessResponse_WhenValid()
     {
-        var command = new SimulateCDBCommand { InitialValue = 1000, Months = 6 };
+        var command = new SimulateCdbCommand { InitialValue = 1000, Months = 6 };
         _validatorMock.Setup(v => v.ValidateAsync(command, It.IsAny<CancellationToken>()))
             .ReturnsAsync(new ValidationResult());
 
-        _simulatorMock.Setup(s => s.Calculate(It.IsAny<Domain.Business.Records.CDB>()))
+        _simulatorMock.Setup(s => s.Calculate(It.IsAny<Domain.Business.Records.Cdb>()))
             .Returns((1100.0, 990.0));
 
         var handler = CreateHandler();
@@ -41,7 +41,7 @@ public class SimulateCDBCommandHandlerTests
     [Fact]
     public async Task Handle_ShouldReturn422Response_WhenValidationFails()
     {
-        var command = new SimulateCDBCommand { InitialValue = -1, Months = 0 };
+        var command = new SimulateCdbCommand { InitialValue = -1, Months = 0 };
         var failures = new List<ValidationFailure>
         {
             new(nameof(command.InitialValue), "Valor inválido"),
@@ -63,31 +63,31 @@ public class SimulateCDBCommandHandlerTests
     [Fact]
     public async Task Handle_ShouldReturn400Response_WhenCDBExceptionIsThrown()
     {
-        var command = new SimulateCDBCommand { InitialValue = 1000, Months = 6 };
+        var command = new SimulateCdbCommand { InitialValue = 1000, Months = 6 };
 
         _validatorMock.Setup(v => v.ValidateAsync(command, It.IsAny<CancellationToken>()))
             .ReturnsAsync(new ValidationResult());
 
-        _simulatorMock.Setup(s => s.Calculate(It.IsAny<Domain.Business.Records.CDB>()))
-            .Throws(new CDBException("Erro CDB"));
+        _simulatorMock.Setup(s => s.Calculate(It.IsAny<Domain.Business.Records.Cdb>()))
+            .Throws(new CdbException("Erro Cdb"));
 
         var handler = CreateHandler();
         var result = await handler.Handle(command, CancellationToken.None);
 
         Assert.False(result.Success);
         Assert.Equal(400, result.StatusCode);
-        Assert.Equal("Erro CDB", result.Message);
+        Assert.Equal("Erro Cdb", result.Message);
     }
 
     [Fact]
     public async Task Handle_ShouldReturn500Response_WhenUnexpectedExceptionIsThrown()
     {
-        var command = new SimulateCDBCommand { InitialValue = 1000, Months = 6 };
+        var command = new SimulateCdbCommand { InitialValue = 1000, Months = 6 };
 
         _validatorMock.Setup(v => v.ValidateAsync(command, It.IsAny<CancellationToken>()))
             .ReturnsAsync(new ValidationResult());
 
-        _simulatorMock.Setup(s => s.Calculate(It.IsAny<Domain.Business.Records.CDB>()))
+        _simulatorMock.Setup(s => s.Calculate(It.IsAny<Domain.Business.Records.Cdb>()))
             .Throws(new InvalidOperationException("Falha interna"));
 
         var handler = CreateHandler();

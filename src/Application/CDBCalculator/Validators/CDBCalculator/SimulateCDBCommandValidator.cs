@@ -3,9 +3,9 @@ using FluentValidation;
 
 namespace Application.Validators.CDBCalculator;
 
-public class SimulateCDBCommandValidator : AbstractValidator<SimulateCDBCommand>
+public class SimulateCdbCommandValidator : AbstractValidator<SimulateCdbCommand>
 {
-    public SimulateCDBCommandValidator()
+    public SimulateCdbCommandValidator()
     {
         RuleFor(cdb => cdb)
             .NotNull()

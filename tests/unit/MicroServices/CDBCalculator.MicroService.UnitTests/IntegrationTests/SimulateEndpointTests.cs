@@ -9,11 +9,11 @@ public class SimulateEndpointTests
     {
         var client = MicroServiceFactory.CreateClient();
 
-        var content = new FormUrlEncodedContent(new[]
-        {
+        var content = new FormUrlEncodedContent(
+        [
             new KeyValuePair<string, string>("Months", "6"),
             new KeyValuePair<string, string>("InitialValue", "1000")
-        });
+        ]);
 
         var response = await client.PostAsync("/cdb/simulate", content);
 
