@@ -1,44 +1,44 @@
 Summary - CDBCalculator - Cobertura Consolidada
-  Generated on: 07/16/2025 - 08:12:20
-  Coverage date: 07/16/2025 - 08:11:32 - 07/16/2025 - 08:12:18
+  Generated on: 07/16/2025 - 11:53:35
+  Coverage date: 07/16/2025 - 11:52:48 - 07/16/2025 - 11:53:32
   Parser: MultiReport (5x Cobertura)
   Assemblies: 5
   Classes: 14
-  Files: 27
-  Line coverage: 80.6%
-  Covered lines: 209
-  Uncovered lines: 50
-  Coverable lines: 259
-  Total lines: 851
-  Branch coverage: 61.6% (37 of 60)
-  Covered branches: 37
-  Total branches: 60
-  Method coverage: 85.7% (42 of 49)
-  Full method coverage: 77.5% (38 of 49)
-  Covered methods: 42
-  Fully covered methods: 38
-  Total methods: 49
+  Files: 14
+  Line coverage: 97.6%
+  Covered lines: 127
+  Uncovered lines: 3
+  Coverable lines: 130
+  Total lines: 439
+  Branch coverage: 94.1% (32 of 34)
+  Covered branches: 32
+  Total branches: 34
+  Method coverage: 100% (25 of 25)
+  Full method coverage: 92% (23 of 25)
+  Covered methods: 25
+  Fully covered methods: 23
+  Total methods: 25
 
-Application                                                          90.6%
-  Application.CQRS.Handlers.Commands.SimulateCdbCommandHandler         77%
+Application                                                           100%
+  Application.CQRS.Handlers.Commands.SimulateCdbCommandHandler        100%
   Application.CQRS.Requests.Commands.SimulateCdbCommand               100%
   Application.CQRS.Responses.Base.Response                            100%
   Application.CQRS.Responses.CDBCalculator.SimulateCdbResponse        100%
   Application.ServiceCollectionExtensions                             100%
   Application.Validators.CDBCalculator.SimulateCdbCommandValidator    100%
 
-CDBCalculator                                                          50%
-  CDBCalculator.Controllers.CdbController                              50%
+CDBCalculator                                                        94.4%
+  CDBCalculator.Controllers.CdbController                            94.4%
 
 CDBCalculator.Server                                                  100%
   CDBCalculator.Server.IWebHostEnvironmentExtensions                  100%
 
-Domain                                                               60.7%
+Domain                                                                100%
   Domain.Business.Records.Cdb                                         100%
-  Domain.Common.Exceptions.CDBCalculator.CdbException                  50%
-  Domain.Common.Exceptions.Http.BadRequestException                    50%
-  Domain.Common.Exceptions.Http.Base.HttpBaseException                 50%
+  Domain.Common.Exceptions.CDBCalculator.CdbException                 100%
+  Domain.Common.Exceptions.Http.BadRequestException                   100%
+  Domain.Common.Exceptions.Http.Base.HttpBaseException                100%
 
-Infrastructure                                                       86.8%
+Infrastructure                                                       94.7%
   Infrastructure.ServiceCollectionExtensions                          100%
-  Infrastructure.Services.CDBCalculator.CdbCalculator                85.2%
+  Infrastructure.Services.CDBCalculator.CdbCalculator                94.1%
