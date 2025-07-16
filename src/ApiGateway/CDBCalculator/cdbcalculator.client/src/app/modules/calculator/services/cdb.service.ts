@@ -9,13 +9,13 @@ import { environment } from '../../../../environments/environment';
   providedIn: 'root'
 })
 export class CdbService {
-  private readonly baseUrl = `${environment.apiUrl}/gateway/Cdb`
   constructor(private readonly http: HttpClient) { }
 
   simulate(data: CdbSimulationRequest): Observable<CdbSimulationResponse> {
     const formData = new FormData();
     formData.append('Months', data.months.toString());
-    formData.append('InitialValue', data.initialValue.toString());
+    formData.append('InitialValue', String(data.initialValue));
+
     return this.http.post<CdbSimulationResponse>(
       `${environment.apiUrl}/Cdb/Simulate`,
       formData

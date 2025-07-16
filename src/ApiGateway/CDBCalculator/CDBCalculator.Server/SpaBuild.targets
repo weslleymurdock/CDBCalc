@@ -1,0 +1,34 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <Target Name="SpaBuild" BeforeTargets="Build" Condition="'$(BuildingInsideDocker)' != 'true'">
+
+    <PropertyGroup>
+      <!-- Caminho relativo válido no host -->
+      <SpaClientDir>$(MSBuildProjectDirectory)\..\cdbcalculator.client</SpaClientDir>
+      <SpaDistDir>$(SpaClientDir)\dist\cdbcalculator.client\browser</SpaDistDir>
+      <SpaTargetDir>$(MSBuildProjectDirectory)\wwwroot</SpaTargetDir>
+    </PropertyGroup>
+
+    <Message Importance="High" Text="Build SPA" />
+
+    <RemoveDir Directories="$(SpaTargetDir)" Condition="Exists('$(SpaTargetDir)')" />
+    <MakeDir Directories="$(SpaTargetDir)" />
+
+    <Exec WorkingDirectory="$(SpaClientDir)" Command="npm install" />
+    <Exec WorkingDirectory="$(SpaClientDir)" Command="npx ng build --configuration=production" />
+
+    <ItemGroup>
+      <SpaFiles Include="$(SpaDistDir)\**\*" />
+    </ItemGroup>
+
+    <Copy SourceFiles="@(SpaFiles)"
+          DestinationFolder="$(SpaTargetDir)"
+          SkipUnchangedFiles="true">
+      <Output TaskParameter="CopiedFiles" ItemName="CopiedSpaFiles" />
+    </Copy>
+
+    <Message Importance="High" Text="SPA copiada para $(SpaTargetDir)" />
+
+  </Target>
+
+</Project>

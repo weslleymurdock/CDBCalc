@@ -28,8 +28,5 @@
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <None Include="wwwroot\**" CopyToOutputDirectory="PreserveNewest" ExcludeFromPublish="true" />
-  </ItemGroup>
- 
+  <Import Project="./SpaBuild.targets" />
 </Project>

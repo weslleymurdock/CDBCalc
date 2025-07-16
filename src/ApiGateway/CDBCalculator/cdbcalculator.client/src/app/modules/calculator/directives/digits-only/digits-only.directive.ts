@@ -1,24 +1,46 @@
-import { Directive, HostListener } from '@angular/core';
+import {
+  Directive,
+  ElementRef,
+  HostListener
+} from '@angular/core';
 
 @Directive({
   selector: '[appDigitsOnly]'
 })
 export class DigitsOnlyDirective {
-  private readonly navigationKeys = ['Backspace', 'ArrowLeft', 'ArrowRight', 'Tab'];
+  constructor(private readonly el: ElementRef<HTMLInputElement>) { }
 
   @HostListener('keydown', ['$event'])
-  onKeyDown(event: KeyboardEvent): void {
-    const isDigit = /^\d$/.test(event.key);
-    if (!isDigit && !this.navigationKeys.includes(event.key)) {
+  handleKeyDown(event: KeyboardEvent): void {
+    const allowedKeys = [
+      'Backspace', 'Tab', 'ArrowLeft', 'ArrowRight', 'Delete'
+    ];
+
+    const isDigit = /^\d$/.test(event.key); 
+
+    if (!isDigit && !allowedKeys.includes(event.key)) {
       event.preventDefault();
     }
   }
 
   @HostListener('paste', ['$event'])
-  onPaste(event: ClipboardEvent): void {
+  handlePaste(event: ClipboardEvent): void {
     const pasted = event.clipboardData?.getData('text') ?? '';
-    if (!/^\d+$/.test(pasted.replace(/\D/g, ''))) {
-      event.preventDefault();
+    const cleaned = pasted.replace(/\D/g, ''); 
+
+    if (!cleaned) {
+      event.preventDefault(); 
+      return;
     }
+
+    event.preventDefault();
+    const input = this.el.nativeElement;
+    const start = input.selectionStart ?? 0;
+    const end = input.selectionEnd ?? 0;
+    const newValue =
+      input.value.substring(0, start) + cleaned + input.value.substring(end);
+    input.value = newValue;
+
+    input.dispatchEvent(new Event('input', { bubbles: true }));
   }
 }

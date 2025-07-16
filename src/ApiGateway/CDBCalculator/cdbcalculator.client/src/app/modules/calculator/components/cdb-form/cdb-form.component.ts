@@ -10,6 +10,7 @@ import { CdbSimulationRequest, CdbSimulationResponse } from '../../models/cdb.mo
 })
 export class CdbFormComponent {
   months: number = 1;
+  initialValueDisplay: string = '';
   initialValue: number = 0;
   initialValueErrorMessage = '';
 
@@ -42,3 +43,4 @@ export class CdbFormComponent {
     });
   }
 }
+

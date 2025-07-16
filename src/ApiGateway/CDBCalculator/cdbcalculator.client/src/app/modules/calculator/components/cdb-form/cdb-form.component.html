@@ -21,12 +21,17 @@
 
     <label for="initialValue" class="form-label">Valor Inicial (R$):</label>
     <input type="text"
-           appCurrencyInput
-           [(ngModel)]="initialValue"
-           (valueChanged)="initialValue = $event"
+           id="initialValue"
+           currencyMask
+           [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',', precision: 2, allowNegative: false }"
+           name="initialValueDisplay"
+           [(ngModel)]="initialValueDisplay"
            #initValueModel="ngModel"
+           appExtractCurrencyValue
+           (valueExtracted)="initialValue = $event"
            required
            class="form-control" />
+
 
     <div *ngIf="initValueModel.invalid && initValueModel.touched" class="text-danger small mt-1">
       <div *ngIf="initValueModel.errors?.['required']">Este campo é obrigatório.</div>
@@ -38,7 +43,6 @@
     <button type="submit" class="btn btn-warning w-100" [disabled]="!cdbForm.valid">
       Simular
     </button>
-
 
   </form>
 </div>

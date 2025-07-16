@@ -26,7 +26,7 @@ COPY src/ApiGateway/CDBCalculator/CDBCalculator.Server/CDBCalculator.Server.cspr
 COPY src/ApiGateway/CDBCalculator/CDBCalculator.Server/ CDBCalculator.Server/
 RUN dotnet restore CDBCalculator.Server/CDBCalculator.Server.csproj
 WORKDIR /src/CDBCalculator.Server
-RUN dotnet publish CDBCalculator.Server.csproj -c $BUILD_CONFIGURATION -o /publish /p:UseAppHost=false
+RUN dotnet publish CDBCalculator.Server.csproj -c $BUILD_CONFIGURATION -o /publish /p:UseAppHost=false /p:BuildingInsideDocker=true
  
 FROM runtime AS final
 WORKDIR /app

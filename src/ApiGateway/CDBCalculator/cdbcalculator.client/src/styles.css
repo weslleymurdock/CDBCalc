@@ -85,6 +85,11 @@ body {
     border-color: var(--b3-blue-dark);
   }
 
+
+.min-vh-90 {
+  min-height: 90vh !important;
+}
+
 @media (min-width: 600px) {
   .card.equal-height {
     min-height: 480px; /* Altura mínima igual para ambos */
