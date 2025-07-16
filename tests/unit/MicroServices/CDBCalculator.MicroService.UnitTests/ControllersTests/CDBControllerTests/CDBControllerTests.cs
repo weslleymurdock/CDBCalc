@@ -29,7 +29,7 @@ public class CDBControllerTests
             .ReturnsAsync(response);
 
         var controller = CreateController();
-        var result = await controller.Simulate(6, 1000.0);
+        var result = await controller.Simulate(6, (decimal)1000.0);
 
         Assert.IsType(expectedResultType, result);
     }
@@ -42,7 +42,7 @@ public class CDBControllerTests
             .ThrowsAsync(new InvalidOperationException("Falhou"));
 
         var controller = CreateController();
-        var result = await controller.Simulate(6, 1000.0);
+        var result = await controller.Simulate(6, (decimal)1000.0);
 
         var contentResult = Assert.IsType<ContentResult>(result);
         Assert.Equal(500, contentResult.StatusCode);
@@ -64,7 +64,7 @@ public class CDBControllerTests
             .ReturnsAsync(response);
 
         var controller = CreateController();
-        var result = await controller.Simulate(6, 1000.0);
+        var result = await controller.Simulate(6, (decimal)1000.0);
 
         var content = Assert.IsType<ContentResult>(result);
         Assert.Equal(418, content.StatusCode);
@@ -80,7 +80,7 @@ public class CDBControllerTests
             .ReturnsAsync((SimulateCdbResponse?)null);
 
         var controller = CreateController();
-        var result = await controller.Simulate(6, 1000.0);
+        var result = await controller.Simulate(6, (decimal)1000.0);
 
         var content = Assert.IsType<ContentResult>(result);
         Assert.NotNull(content.Content); 
