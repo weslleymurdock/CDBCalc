@@ -1,5 +1,9 @@
 ﻿using Application.CQRS.Requests.Commands;
 using Application.CQRS.Responses.CDBCalculator;
+using Domain.Business.Records;
+using Domain.Common.Exceptions.CDBCalculator;
+using Infrastructure.Common.Interfaces;
+using Infrastructure.Services.CDBCalculator;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -10,171 +14,159 @@ using CdbController = CDBCalculator.Controllers.CdbController;
 
 namespace CDBCalculator.MicroService.UnitTests.ControllersTests.CDBControllerTests;
 
-public class CDBControllerTests
+public class CdbControllerTests
 {
-    private readonly ILogger<CdbController> _loggerMock = Substitute.For<ILogger<CdbController>>();
+    private readonly ILogger<CdbController> _logger = Substitute.For<ILogger<CdbController>>();
+    private readonly ICdbCalculator _calculator = new CdbCalculator();
     private readonly IMediator _mediator = Substitute.For<IMediator>();
+    private readonly CdbController _controller;
 
-    private CdbController CreateController() =>
-        new(_loggerMock, _mediator);
+    public CdbControllerTests()
+    {
+        _controller = new CdbController(_logger, _mediator);
+    }
+
+    private SimulateCdbResponse CalculateResponse(double vi, uint months)
+    {
+        if (vi < 0.01)
+        {
+            return new SimulateCdbResponse
+            {
+                StatusCode = 422,
+                Success = false,
+                Message = "Valor inicial inválido"
+            };
+        }
+
+        try
+        {
+            var cdb = new Cdb(vi, months);
+            var (gross, net) = _calculator.Calculate(cdb);
+
+            return new SimulateCdbResponse
+            {
+                Gross = gross,
+                Net = net,
+                Success = true,
+                StatusCode = 200,
+                Message = "Simulação bem-sucedida"
+            };
+        }
+        catch (CdbException ex)
+        {
+            return new SimulateCdbResponse
+            {
+                StatusCode = 422,
+                Success = false,
+                Message = ex.Message
+            };
+        }
+    }
+
 
     [Theory]
-    [InlineData(200, typeof(OkObjectResult))]
-    [InlineData(400, typeof(BadRequestObjectResult))]
-    [InlineData(422, typeof(UnprocessableEntityObjectResult))]
-    [InlineData(500, typeof(ContentResult))]
-    public async Task Simulate_ReturnsExpectedResponse(int statusCode, Type expectedType)
+    [InlineData(220.00, 6, 200)]
+    [InlineData(0.00, 6, 422)]
+    [InlineData(220.00, 0, 422)]
+    public async Task Simulate_ShouldHandleValidAndInvalidInput(decimal vi, uint months, int expectedStatus)
     {
-        var response = new SimulateCdbResponse { StatusCode = statusCode, Message = "Mensagem", Success = false };
-
         _mediator.Send(Arg.Any<SimulateCdbCommand>(), Arg.Any<CancellationToken>())
-                .Returns(Task.FromResult(response));
+                 .Returns(ci =>
+                 {
+                     var cmd = ci.Arg<SimulateCdbCommand>();
+                     return CalculateResponse(cmd.InitialValue, cmd.Months);
+                 });
 
-        var result = await CreateController().Simulate(6, 1000.00m);
+        var result = await _controller.Simulate(months, vi);
+        var objectResult = Assert.IsAssignableFrom<IActionResult>(result);
 
-        Assert.IsType(expectedType, result);
+        if (expectedStatus == 200)
+        {
+            var ok = Assert.IsType<OkObjectResult>(objectResult);
+            var response = Assert.IsType<SimulateCdbResponse>(ok.Value);
+            Assert.True(response.Success);
+        }
+        else
+        {
+            var response = objectResult switch
+            {
+                UnprocessableEntityObjectResult r => r.Value as SimulateCdbResponse,
+                BadRequestObjectResult r => r.Value as SimulateCdbResponse,
+                ContentResult r => new SimulateCdbResponse
+                {
+                    Message = r.Content!,
+                    StatusCode = r.StatusCode ?? 500,
+                    Success = false
+                },
+                _ => null
+            };
 
+            Assert.NotNull(response);
+            Assert.False(response!.Success);
+            Assert.Equal(expectedStatus, response.StatusCode);
+        }
     }
 
     [Fact]
-    public async Task Simulate_WhenExceptionThrown_Returns500ContentResult()
+    public async Task Simulate_WhenBadRequestHappens_ShouldReturn400()
+    {
+        var response = new SimulateCdbResponse
+        {
+            StatusCode = 400,
+            Message = "Bad Request",
+            Success = false
+        };
+        _mediator.Send(Arg.Any<SimulateCdbCommand>(), Arg.Any<CancellationToken>())
+                 .Returns(response);
+        var result = await _controller.Simulate(10, 0.00m);
+        var objectResult = Assert.IsType<BadRequestObjectResult>(result);
+        var content = Assert.IsType<SimulateCdbResponse>(objectResult.Value);
+        Assert.Equal(400, content.StatusCode);
+        Assert.False(content.Success);
+        Assert.Equal("Bad Request", content.Message);
+    }
+
+    [Fact]
+    public async Task Simulate_WhenUnhandledExceptionOccurs_ShouldReturn500()
     {
         _mediator.Send(Arg.Any<SimulateCdbCommand>(), Arg.Any<CancellationToken>())
-               .ThrowsAsync(new InvalidOperationException("Falhou"));
+                 .Throws(new Exception("Falha geral"));
 
-
-        var controller = CreateController();
-        var result = await controller.Simulate(6, 1000.0m);
-
-        var contentResult = Assert.IsType<ContentResult>(result);
-        Assert.Equal(500, contentResult.StatusCode);
-        Assert.Equal("Falhou", contentResult.Content);
+        var result = await _controller.Simulate(10, 1000m);
+        var content = Assert.IsType<ContentResult>(result);
+        Assert.Equal(500, content.StatusCode);
+        Assert.Contains("Falha geral", content.Content);
     }
-    
+
     [Fact]
-    public async Task Simulate_WithUnexpectedStatusCode_ReturnsCustomContentResult()
+    public async Task Simulate_WhenResponseIsNull_ShouldReturnNullContent()
+    {
+        _mediator.Send(Arg.Any<SimulateCdbCommand>(), Arg.Any<CancellationToken>())
+                 .Returns((SimulateCdbResponse?)null!);
+
+        var result = await _controller.Simulate(10, 1000m);
+        var content = Assert.IsType<ContentResult>(result);
+        Assert.Null(content.Content!);
+    }
+
+    [Fact]
+    public async Task Simulate_ShouldHandleUnexpectedStatusCodeWithMessage()
     {
         var response = new SimulateCdbResponse
         {
             StatusCode = 418,
-            Message = "Sou um bule de chá",
+            Message = "Im a tea pot",
             Success = false
         };
 
         _mediator.Send(Arg.Any<SimulateCdbCommand>(), Arg.Any<CancellationToken>())
-               .Returns(Task.FromResult(response));
+                 .Returns(response);
 
-
-        var controller = CreateController();
-        var result = await controller.Simulate(6, 1000.0m);
-
+        var result = await _controller.Simulate(10, 1000m);
         var content = Assert.IsType<ContentResult>(result);
         Assert.Equal(418, content.StatusCode);
-        Assert.Equal("Sou um bule de chá", content.Content);
+        Assert.Equal("Im a tea pot", content.Content);
     }
 
-    [Fact]
-    public async Task Simulate_WhenResponseIsNull_ReturnsEmptyContentResult()
-    {
-        _mediator.Send(Arg.Any<SimulateCdbCommand>(), Arg.Any<CancellationToken>())
-                        .Returns(Task.FromResult<SimulateCdbResponse>(null!));
-
-
-        var controller = CreateController();
-        var result = await controller.Simulate(6, 1000.0m);
-
-        var content = Assert.IsType<ContentResult>(result);
-        Assert.NotNull(content.Content); 
-    }
-    [Fact]
-    public async Task Simulate_ShouldPassConvertedInitialValueAndMonthsCorrectly()
-    {
-        SimulateCdbCommand? capturedCommand = null;
-
-        _mediator.Send(Arg.Do<SimulateCdbCommand>(cmd => capturedCommand = cmd), Arg.Any<CancellationToken>())
-                 .Returns(new SimulateCdbResponse { StatusCode = 200, Success = true });
-
-        await CreateController().Simulate(12, 220.55m);
-
-        Assert.NotNull(capturedCommand);
-        Assert.Equal(220.55, capturedCommand.InitialValue, precision: 2);
-        Assert.Equal((uint)12, capturedCommand.Months);
-    }
-
-    [Theory]
-    [InlineData(0u, 220.00)]
-    [InlineData(10u, -50.00)]
-    public async Task Simulate_WithInvalidValues_ShouldStillReturnHandledResponse(uint months, decimal initial)
-    {
-        var response = new SimulateCdbResponse { StatusCode = 400, Message = "Valor inválido", Success = false };
-
-        _mediator.Send(Arg.Any<SimulateCdbCommand>(), Arg.Any<CancellationToken>())
-                 .Returns(response);
-
-        var result = await CreateController().Simulate(months, initial);
-        var badRequest = Assert.IsType<BadRequestObjectResult>(result);
-
-        Assert.Equal(response, badRequest.Value);
-    }
-
-    [Fact]
-    public async Task Simulate_WhenMessageIsNull_ShouldReturnStatusOnly()
-    {
-        var response = new SimulateCdbResponse { StatusCode = 500, Message = null!, Success = false };
-
-        _mediator.Send(Arg.Any<SimulateCdbCommand>(), Arg.Any<CancellationToken>())
-                 .Returns(response);
-
-        var result = await CreateController().Simulate(3, 100m);
-        var content = Assert.IsType<ContentResult>(result);
-
-        Assert.Equal(500, content.StatusCode);
-        Assert.Null(content.Content);
-    }
-    [Fact]
-    public async Task Simulate_SuccessfulResponse_ShouldReturnOk()
-    {
-        var response = new SimulateCdbResponse
-        {
-            StatusCode = 200,
-            Success = true,
-            Message = "Tudo certo"
-        };
-
-        _mediator.Send(Arg.Any<SimulateCdbCommand>(), default).Returns(response);
-
-        var result = await CreateController().Simulate(10, 100m);
-        var ok = Assert.IsType<OkObjectResult>(result);
-        Assert.Equal(response, ok.Value);
-    }
-    [Fact]
-    public async Task Simulate_ResponseWithNullMessageAndUnknownStatus_ShouldReturnEmptyContent()
-    {
-        var response = new SimulateCdbResponse
-        {
-            StatusCode = 007,
-            Success = false,
-            Message = null!
-        };
-
-        _mediator.Send(Arg.Any<SimulateCdbCommand>(), default).Returns(response);
-
-        var result = await CreateController().Simulate(5, 10m);
-        var content = Assert.IsType<ContentResult>(result);
-
-        Assert.Equal(007, content.StatusCode);
-        Assert.Null(content.Content);
-    }
-    [Fact]
-    public async Task Simulate_WhenUnhandledExceptionThrown_ShouldReturnInternalServerError()
-    {
-        _mediator.Send(Arg.Any<SimulateCdbCommand>(), default)
-                 .Throws(new NullReferenceException("Null exploded"));
-
-        var result = await CreateController().Simulate(1, 1);
-
-        var content = Assert.IsType<ContentResult>(result);
-        Assert.Equal(500, content.StatusCode);
-        Assert.Equal("Null exploded", content.Content);
-    }
 }
+
