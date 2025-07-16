@@ -2,8 +2,23 @@
 
 namespace CDBCalculator.Server;
 
+/// <summary>
+/// Configures services and middleware for the application.
+/// </summary>
+/// <remarks>The <c>Startup</c> class is responsible for setting up the application's dependency injection, 
+/// middleware pipeline, and other configurations. It defines methods for registering services  and configuring the
+/// request processing pipeline.  Use the <c>ConfigureServices</c> method to register application services, such as
+/// controllers,  CORS policies, Swagger, reverse proxy, and SPA static files. Use the <c>Configure</c> method  to
+/// define the middleware pipeline, including routing, static file handling, Swagger UI, and SPA  fallback
+/// behavior.</remarks>
+/// <param name="config"></param>
+/// <param name="env"></param>
 public class Startup(IConfiguration config, IWebHostEnvironment env)
 {
+    /// <summary>
+    /// Configures services for the application.
+    /// </summary>
+    /// <param name="services"></param>
     public void ConfigureServices(IServiceCollection services)
     {
         services.AddControllers();
@@ -28,6 +43,10 @@ public class Startup(IConfiguration config, IWebHostEnvironment env)
                 .LoadFromConfig(config.GetSection("ReverseProxy"));
     }
 
+    /// <summary>
+    /// Configures the middleware pipeline for the application. 
+    /// </summary>
+    /// <param name="app">The application to configure</param>
     public void Configure(IApplicationBuilder app)
     {
         app.UseDefaultFiles();

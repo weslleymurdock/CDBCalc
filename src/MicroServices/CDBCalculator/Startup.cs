@@ -2,9 +2,16 @@
 using Application;
 
 namespace CDBCalculator;
-
+/// <summary>
+/// Configures the application services and middleware for the CDB Calculator microservice.
+/// </summary>
+/// <param name="env"></param>
 public class Startup(IWebHostEnvironment env)
 {
+    /// <summary>
+    /// Configures services for the CDB Calculator application.
+    /// </summary>
+    /// <param name="services"></param>
     public void ConfigureServices(IServiceCollection services)
     {
         services.AddControllers();
@@ -30,6 +37,10 @@ public class Startup(IWebHostEnvironment env)
         services.AddApplication();
     }
 
+    /// <summary>
+    /// Configures the middleware pipeline for the CDB Calculator application.
+    /// </summary>
+    /// <param name="app"></param>
     public void Configure(IApplicationBuilder app)
     {
         app.UseCors("AllowGateway");

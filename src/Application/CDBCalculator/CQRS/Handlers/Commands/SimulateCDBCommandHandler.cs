@@ -8,6 +8,12 @@ using Microsoft.Extensions.Logging;
 
 namespace Application.CQRS.Handlers.Commands;
 
+/// <summary>
+/// Handles the simulation of a CDB (Certificate of Deposit) investment.
+/// </summary>
+/// <param name="logger"></param>
+/// <param name="validator"></param>
+/// <param name="simulator"></param>
 public class SimulateCdbCommandHandler(ILogger<SimulateCdbCommandHandler> logger, IValidator<SimulateCdbCommand> validator, ICdbCalculator simulator) : IRequestHandler<SimulateCdbCommand, SimulateCdbResponse>
 {
     public async Task<SimulateCdbResponse> Handle(SimulateCdbCommand request, CancellationToken cancellationToken)
