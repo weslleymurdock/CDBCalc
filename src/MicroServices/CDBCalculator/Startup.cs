@@ -2,9 +2,16 @@
 using Application;
 
 namespace CDBCalculator;
-
-public class Startup(IConfiguration configuration, IWebHostEnvironment env)
+/// <summary>
+/// Configures the application services and middleware for the CDB Calculator microservice.
+/// </summary>
+/// <param name="env"></param>
+public class Startup(IWebHostEnvironment env)
 {
+    /// <summary>
+    /// Configures services for the CDB Calculator application.
+    /// </summary>
+    /// <param name="services"></param>
     public void ConfigureServices(IServiceCollection services)
     {
         services.AddControllers();
@@ -22,14 +29,18 @@ public class Startup(IConfiguration configuration, IWebHostEnvironment env)
         {
             c.SwaggerDoc("v1", new OpenApiInfo
             {
-                Title = "Simulador de CDB",
+                Title = "Simulador de Cdb",
                 Version = "v1"
             });
         });
 
-        services.AddApplication(configuration);
+        services.AddApplication();
     }
 
+    /// <summary>
+    /// Configures the middleware pipeline for the CDB Calculator application.
+    /// </summary>
+    /// <param name="app"></param>
     public void Configure(IApplicationBuilder app)
     {
         app.UseCors("AllowGateway");
@@ -43,7 +54,7 @@ public class Startup(IConfiguration configuration, IWebHostEnvironment env)
 
         app.UseSwaggerUI(c =>
         {
-            c.SwaggerEndpoint("/swagger/v1/swagger.json", "CDB Calculator API");
+            c.SwaggerEndpoint("/swagger/v1/swagger.json", "Cdb Calculator API");
         });
 
         app.UseRouting();

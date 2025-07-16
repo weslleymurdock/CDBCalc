@@ -28,6 +28,5 @@
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
   </ItemGroup>
- 
- 
+  <Import Project="./SpaBuild.targets" />
 </Project>

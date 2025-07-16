@@ -9,7 +9,7 @@ public class CDBExceptionTests
     [Fact]
     public void ShouldReturnCustomMessage()
     {
-        var ex = new CDBException("Erro de cálculo");
+        var ex = new CdbException("Erro de cálculo");
         Assert.Equal("Erro de cálculo", ex.Message);
     }
 }

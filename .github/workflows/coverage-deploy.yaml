@@ -52,23 +52,24 @@ jobs:
       with:
         name: coverage-report
         path: reports/
-
+  
   deploy:
-    name: Publish to GitHub Pages
+    name: Publicar Painel de Relatórios
     runs-on: ubuntu-latest
     needs: test
     if: github.event_name == 'push'
-    steps:
-    - name: Checkout repo
-      uses: actions/checkout@v4
 
-    - name: Download coverage report
+    steps:
+    - name: Checkout do repositório (index personalizado)
+      uses: actions/checkout@v4
+ 
+    - name: Baixar artefato de cobertura
       uses: actions/download-artifact@v4
       with:
         name: coverage-report
         path: reports
 
-    - name: Publish to GitHub Pages
+    - name: Publicar para GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}

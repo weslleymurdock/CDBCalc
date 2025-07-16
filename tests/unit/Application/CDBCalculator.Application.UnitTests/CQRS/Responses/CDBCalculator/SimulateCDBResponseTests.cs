@@ -8,7 +8,7 @@ public class SimulateCDBResponseTests
     [Fact]
     public void SimulateCDBResponse_Defaults_ShouldBeCorrect()
     {
-        var response = new SimulateCDBResponse();
+        var response = new SimulateCdbResponse();
 
         Assert.False(response.Success);      
         Assert.Equal(0, response.StatusCode);
@@ -20,7 +20,7 @@ public class SimulateCDBResponseTests
     [Fact]
     public void SimulateCDBResponse_Properties_ShouldBeSettable()
     {
-        var response = new SimulateCDBResponse
+        var response = new SimulateCdbResponse
         {
             Success = true,
             StatusCode = 200,

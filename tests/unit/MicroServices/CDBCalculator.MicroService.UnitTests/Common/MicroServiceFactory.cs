@@ -4,14 +4,14 @@ using Microsoft.Extensions.Hosting;
 
 namespace CDBCalculator.MicroService.UnitTests.Common;
 
-public class MicroServiceFactory
+public static class MicroServiceFactory
 {
     public static HttpClient CreateClient(string environment = "Development")
     {
         var contentRoot = Path.GetFullPath(Path.Combine(
             AppContext.BaseDirectory,
             "..", "..", "..", "..", "..", "..", "..",
-            "src", "MicroServices", "CDBCalculator"
+            "src", "MicroServices", "CdbCalculator"
         ));
 
         var builder = new WebHostBuilder()
@@ -24,7 +24,7 @@ public class MicroServiceFactory
     }
     public static IHost CreateHost(string environment = "Development")
     {
-        return Program.CreateHostBuilder(new[] { $"--environment={environment}" })
+        return Program.CreateHostBuilder([$"--environment={environment}"])
             .ConfigureWebHost(webBuilder =>
             {
                 webBuilder.UseTestServer();

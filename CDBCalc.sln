@@ -39,8 +39,6 @@ Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "cdbcalculator.client", "src
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CDBCalculator.Server", "src\ApiGateway\CDBCalculator\CDBCalculator.Server\CDBCalculator.Server.csproj", "{C585EC90-1C7D-4731-9DDE-8ADF5A778877}"
 EndProject
-Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{81DDED9D-158B-E303-5F62-77A2896D2A5A}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{787D7E30-2266-4A49-8A45-D1032C3351D0}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CDBCalculator.Domain.UnitTests", "CDBCalculator.Domain.UnitTests", "{14815D07-A20A-43F3-A20E-0A0D51F42183}"
@@ -80,6 +78,16 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		Run.ps1 = Run.ps1
 		run.sh = run.sh
 		RunTests.targets = RunTests.targets
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "reports", "reports", "{C2F8F31E-46EE-4D26-9263-4CF1E823D27F}"
+	ProjectSection(SolutionItems) = preProject
+		reports\index.html = reports\index.html
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "sonar-scanner", "sonar-scanner", "{A9B33486-0214-412E-AB1B-E130BAF126E4}"
+	ProjectSection(SolutionItems) = preProject
+		reports\sonar-scanner\index.html = reports\sonar-scanner\index.html
 	EndProjectSection
 EndProject
 Global
@@ -170,18 +178,6 @@ Global
 		{C585EC90-1C7D-4731-9DDE-8ADF5A778877}.Release|x64.Build.0 = Release|Any CPU
 		{C585EC90-1C7D-4731-9DDE-8ADF5A778877}.Release|x86.ActiveCfg = Release|Any CPU
 		{C585EC90-1C7D-4731-9DDE-8ADF5A778877}.Release|x86.Build.0 = Release|Any CPU
-		{81DDED9D-158B-E303-5F62-77A2896D2A5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{81DDED9D-158B-E303-5F62-77A2896D2A5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{81DDED9D-158B-E303-5F62-77A2896D2A5A}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{81DDED9D-158B-E303-5F62-77A2896D2A5A}.Debug|x64.Build.0 = Debug|Any CPU
-		{81DDED9D-158B-E303-5F62-77A2896D2A5A}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{81DDED9D-158B-E303-5F62-77A2896D2A5A}.Debug|x86.Build.0 = Debug|Any CPU
-		{81DDED9D-158B-E303-5F62-77A2896D2A5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{81DDED9D-158B-E303-5F62-77A2896D2A5A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{81DDED9D-158B-E303-5F62-77A2896D2A5A}.Release|x64.ActiveCfg = Release|Any CPU
-		{81DDED9D-158B-E303-5F62-77A2896D2A5A}.Release|x64.Build.0 = Release|Any CPU
-		{81DDED9D-158B-E303-5F62-77A2896D2A5A}.Release|x86.ActiveCfg = Release|Any CPU
-		{81DDED9D-158B-E303-5F62-77A2896D2A5A}.Release|x86.Build.0 = Release|Any CPU
 		{6ECADDDE-BA37-53E1-7815-DBA9CF466C2D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6ECADDDE-BA37-53E1-7815-DBA9CF466C2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6ECADDDE-BA37-53E1-7815-DBA9CF466C2D}.Debug|x64.ActiveCfg = Debug|Any CPU
@@ -278,6 +274,7 @@ Global
 		{064134F2-D9B3-481F-B383-640DFF1F1411} = {5B6B51BF-98F1-4241-B643-92370D652353}
 		{C338A7F3-26A4-456A-84CF-78B7B0DEAC16} = {064134F2-D9B3-481F-B383-640DFF1F1411}
 		{6E868356-22A8-FF10-4CB1-3BCA810DABA0} = {C338A7F3-26A4-456A-84CF-78B7B0DEAC16}
+		{A9B33486-0214-412E-AB1B-E130BAF126E4} = {C2F8F31E-46EE-4D26-9263-4CF1E823D27F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9DC6DF87-E16B-455A-9450-5BC398CB6ECE}

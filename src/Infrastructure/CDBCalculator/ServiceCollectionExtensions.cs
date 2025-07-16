@@ -5,11 +5,19 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace Infrastructure;
 
+/// <summary>
+/// Provides extension methods for configuring and adding infrastructure services to the <see cref="IServiceCollection"/>.
+/// </summary>
 public static class ServiceCollectionExtensions
 {
-    public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
+    /// <summary>
+    /// Adds infrastructure services to the specified <see cref="IServiceCollection"/>.
+    /// </summary>
+    /// <param name="services"></param>
+    /// <returns></returns>
+    public static IServiceCollection AddInfrastructure(this IServiceCollection services)
     {
-        services.AddTransient<ICDBCalculator, CDBCalculator>();
+        services.AddTransient<ICdbCalculator, CdbCalculator>();
         return services;
     }
 }

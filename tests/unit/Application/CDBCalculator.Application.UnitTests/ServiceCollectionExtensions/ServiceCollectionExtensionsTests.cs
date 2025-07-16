@@ -5,7 +5,7 @@ using Application;
 using Infrastructure.Common.Interfaces;
 using FluentValidation;
 using MediatR;
-using SimulateCDBCommand = Application.CQRS.Requests.Commands.SimulateCDBCommand;
+using SimulateCdbCommand = Application.CQRS.Requests.Commands.SimulateCdbCommand;
 namespace CDBCalculator.Application.UnitTests.ServiceCollectionExtensions;
 
 public class ServiceCollectionExtensionsTests
@@ -14,14 +14,13 @@ public class ServiceCollectionExtensionsTests
     public void AddApplication_ShouldRegisterDependencies()
     {
         var services = new ServiceCollection();
-        var config = new ConfigurationBuilder().Build();
 
-        services.AddApplication(config);
+        services.AddApplication();
         var provider = services.BuildServiceProvider();
 
         var mediator = provider.GetService<IMediator>();
-        var validator = provider.GetService<IValidator<SimulateCDBCommand>>();
-        var calc = provider.GetService<ICDBCalculator>();
+        var validator = provider.GetService<IValidator<SimulateCdbCommand>>();
+        var calc = provider.GetService<ICdbCalculator>();
 
         Assert.NotNull(mediator);
         Assert.NotNull(validator);

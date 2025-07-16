@@ -1,0 +1,48 @@
+<div class="card shadow-sm equal-height p-4">
+
+  <h3 class="text-center text-primary mb-3">Simular CDB</h3>
+
+  <form #cdbForm="ngForm" (ngSubmit)="simulate()" class="d-grid gap-3">
+
+    <label for="months" class="form-label">Meses para retirada (≥ 1):</label>
+    <input type="text"
+           id="months"
+           name="months"
+           [(ngModel)]="months"
+           #monthsModel="ngModel"
+           required
+           pattern="^[1-9][0-9]*$"
+           appDigitsOnly
+           class="form-control" />
+    <div *ngIf="monthsModel.invalid && monthsModel.touched" class="text-danger small mt-1">
+      <div *ngIf="monthsModel.errors?.['required']">Este campo é obrigatório.</div>
+      <div *ngIf="monthsModel.errors?.['pattern']">Informe um valor inteiro válido.</div>
+    </div>
+
+    <label for="initialValue" class="form-label">Valor Inicial (R$):</label>
+    <input type="text"
+           id="initialValue"
+           currencyMask
+           [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',', precision: 2, allowNegative: false }"
+           name="initialValueDisplay"
+           [(ngModel)]="initialValueDisplay"
+           #initValueModel="ngModel"
+           appExtractCurrencyValue
+           (valueExtracted)="initialValue = $event"
+           required
+           class="form-control" />
+
+
+    <div *ngIf="initValueModel.invalid && initValueModel.touched" class="text-danger small mt-1">
+      <div *ngIf="initValueModel.errors?.['required']">Este campo é obrigatório.</div>
+    </div>
+    <div *ngIf="initialValueErrorMessage" class="text-danger small mt-1">
+      {{ initialValueErrorMessage }}
+    </div>
+
+    <button type="submit" class="btn btn-warning w-100" [disabled]="!cdbForm.valid">
+      Simular
+    </button>
+
+  </form>
+</div>

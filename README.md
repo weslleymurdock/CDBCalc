@@ -94,7 +94,7 @@ PS C:\repo\CBDCalc> .\Run.ps1 -RunMode Test
 ### 3. 🚀 Executar a aplicação (Ambiente Docker)
 
 A aplicação foi estruturada para ser executada exclusivamente através do **Docker Compose**, garantindo consistência, isolamento e portabilidade de todo o ambiente, inclusive microserviços e gateways internos.
-
+Entretanto no windows é possível utilizar o visual studio, porém é necessário executar nennhum dos perfis de execução disponiveis, selecionando multiplos projetos de execução, `CDBCalculator` e `CDBCalculator.Server`.
 Para inicializar o ambiente completo:
 
 #### 🖥️ Windows (PowerShell):
@@ -113,11 +113,11 @@ Esse comando dispara:
 - ⚙️ Inicialização dos backends e gateways
 - 🌐 Exposição de endpoints para testes e integração
 
-## 📊 Cobertura de Testes
+Apos isso abra o navegador em [http://localhost:5000](http://localhost:5000) para acessar a aplicação.
 
-Cobertura de Testes
-...
+### 📊 Cobertura de Testes
 
+Cobertura de Testes é gerada automaticamente durante a execução dos testes unitários. O relatório é consolidado e disponibilizado em HTML, no github pages: [CDBCalc Report](https://weslleymurdock.github.io/CDBCalc/).
 
 ## 📄 Licença
 MIT — consulte o arquivo LICENSE para detalhes.

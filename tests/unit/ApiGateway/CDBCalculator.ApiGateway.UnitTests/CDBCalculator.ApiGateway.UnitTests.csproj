@@ -17,6 +17,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="8.0.7" />
     <PackageReference Include="Microsoft.AspNetCore.TestHost" Version="8.0.7" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.8.0" />
     <PackageReference Include="xunit" Version="2.5.3" />
@@ -27,12 +28,18 @@
     <Using Include="Xunit" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\..\src\ApiGateway\CDBCalculator\cdbcalculator.client\cdbcalculator.client.esproj" />
-    <ProjectReference Include="..\..\..\..\src\ApiGateway\CDBCalculator\CDBCalculator.Server\CDBCalculator.Server.csproj" />
+  <ItemGroup> 
+    <ProjectReference Include="..\..\..\..\src\ApiGateway\CDBCalculator\CDBCalculator.Server\CDBCalculator.Server.csproj" /> 
+    <ProjectReference Include="..\..\..\..\src\MicroServices\CDBCalculator\CDBCalculator.csproj" />
   </ItemGroup>
 
-  <Import Project="SpaBuild.targets" /><!-- keep here -->
+  <ItemGroup>
+    <None Update="appsettings.Stub.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <ExcludeFromPublish>true</ExcludeFromPublish>
+    </None> 
+  </ItemGroup>
+
   <Import Project="TestCoverage.props" /><!-- keep here -->
    
 
