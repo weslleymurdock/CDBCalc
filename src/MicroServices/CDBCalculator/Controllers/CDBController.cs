@@ -43,7 +43,7 @@ public class CdbController(ILogger<CdbController> logger, IMediator mediator) : 
     {
         try
         {
-            logger.LogInformation("[POST]: {Path} Initial Value: {Initial}. Months: {Months}.", HttpContext.Request.Path,initial, months);
+
             var request = new SimulateCdbCommand() { InitialValue = Convert.ToDouble(initial), Months = months };
             var response = await mediator.Send(request);
             return response?.StatusCode switch
@@ -59,10 +59,6 @@ public class CdbController(ILogger<CdbController> logger, IMediator mediator) : 
         {
             logger.LogError(e, "Houve um erro: {Message}", e.Message);
             return new ContentResult() { Content = e.Message, ContentType = "text/plain", StatusCode = 500 };
-        }
-        finally
-        {
-            logger.LogInformation("[POST]: {Path} finished", HttpContext.Request.Path);
-        }
+        } 
     }
 }
