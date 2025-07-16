@@ -224,15 +224,11 @@ var assemblies = [
     "name": "CDBCalculator",
     "classes": [
       { "name": "CDBCalculator.Controllers.CdbController", "rp": "CDBCalculator_CdbController.html", "cl": 18, "ucl": 18, "cal": 36, "tl": 129, "cb": 14, "tb": 28, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
-      { "name": "CDBCalculator.Program", "rp": "CDBCalculator_Program.html", "cl": 10, "ucl": 12, "cal": 22, "tl": 82, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
-      { "name": "CDBCalculator.Startup", "rp": "CDBCalculator_Startup.html", "cl": 82, "ucl": 0, "cal": 82, "tl": 142, "cb": 4, "tb": 4, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
     ]},
   {
     "name": "CDBCalculator.Server",
     "classes": [
-      { "name": "CDBCalculator.Server.IWebHostApplicationEnvironmentExtensions", "rp": "CDBCalculator.Server_IWebHostApplicationEnvironmentExtensions.html", "cl": 0, "ucl": 1, "cal": 1, "tl": 13, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
-      { "name": "CDBCalculator.Server.Program", "rp": "CDBCalculator.Server_Program.html", "cl": 0, "ucl": 11, "cal": 11, "tl": 45, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
-      { "name": "CDBCalculator.Server.Startup", "rp": "CDBCalculator.Server_Startup.html", "cl": 0, "ucl": 44, "cal": 44, "tl": 87, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
+      { "name": "CDBCalculator.Server.IWebHostEnvironmentExtensions", "rp": "CDBCalculator.Server_IWebHostEnvironmentExtensions.html", "cl": 1, "ucl": 0, "cal": 1, "tl": 15, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
     ]},
   {
     "name": "Domain",

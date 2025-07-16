@@ -1,23 +1,23 @@
 Summary - CDBCalculator - Cobertura Consolidada
-  Generated on: 07/16/2025 - 04:42:35
-  Coverage date: 07/16/2025 - 04:41:50 - 07/16/2025 - 04:42:33
+  Generated on: 07/16/2025 - 08:03:34
+  Coverage date: 07/16/2025 - 08:02:49 - 07/16/2025 - 08:03:32
   Parser: MultiReport (5x Cobertura)
   Assemblies: 5
-  Classes: 18
-  Files: 33
-  Line coverage: 71.7%
-  Covered lines: 300
-  Uncovered lines: 118
-  Coverable lines: 418
-  Total lines: 1205
-  Branch coverage: 64% (41 of 64)
-  Covered branches: 41
-  Total branches: 64
-  Method coverage: 73.1% (49 of 67)
-  Full method coverage: 67.1% (45 of 67)
-  Covered methods: 49
-  Fully covered methods: 45
-  Total methods: 67
+  Classes: 14
+  Files: 27
+  Line coverage: 80.6%
+  Covered lines: 209
+  Uncovered lines: 50
+  Coverable lines: 259
+  Total lines: 851
+  Branch coverage: 61.6% (37 of 60)
+  Covered branches: 37
+  Total branches: 60
+  Method coverage: 85.7% (42 of 49)
+  Full method coverage: 77.5% (38 of 49)
+  Covered methods: 42
+  Fully covered methods: 38
+  Total methods: 49
 
 Application                                                          90.6%
   Application.CQRS.Handlers.Commands.SimulateCdbCommandHandler         77%
@@ -27,15 +27,11 @@ Application                                                          90.6%
   Application.ServiceCollectionExtensions                             100%
   Application.Validators.CDBCalculator.SimulateCdbCommandValidator    100%
 
-CDBCalculator                                                        78.5%
+CDBCalculator                                                          50%
   CDBCalculator.Controllers.CdbController                              50%
-  CDBCalculator.Program                                              45.4%
-  CDBCalculator.Startup                                               100%
 
-CDBCalculator.Server                                                    0%
-  CDBCalculator.Server.IWebHostApplicationEnvironmentExtensions         0%
-  CDBCalculator.Server.Program                                          0%
-  CDBCalculator.Server.Startup                                          0%
+CDBCalculator.Server                                                  100%
+  CDBCalculator.Server.IWebHostEnvironmentExtensions                  100%
 
 Domain                                                               60.7%
   Domain.Business.Records.Cdb                                         100%
