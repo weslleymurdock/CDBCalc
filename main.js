@@ -213,40 +213,40 @@ var assemblies = [
   {
     "name": "Application",
     "classes": [
-      { "name": "Application.CQRS.Handlers.Commands.SimulateCDBCommandHandler", "rp": "Application_SimulateCDBCommandHandler.html", "cl": 37, "ucl": 11, "cal": 48, "tl": 89, "cb": 3, "tb": 4, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
-      { "name": "Application.CQRS.Requests.Commands.SimulateCDBCommand", "rp": "Application_SimulateCDBCommand.html", "cl": 4, "ucl": 0, "cal": 4, "tl": 21, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
-      { "name": "Application.CQRS.Responses.Base.Response", "rp": "Application_Response.html", "cl": 6, "ucl": 0, "cal": 6, "tl": 17, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
-      { "name": "Application.CQRS.Responses.CDBCalculator.SimulateCDBResponse", "rp": "Application_SimulateCDBResponse.html", "cl": 4, "ucl": 0, "cal": 4, "tl": 15, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
-      { "name": "Application.ServiceCollectionExtensions", "rp": "Application_ServiceCollectionExtensions.html", "cl": 12, "ucl": 0, "cal": 12, "tl": 33, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
-      { "name": "Application.Validators.CDBCalculator.SimulateCDBCommandValidator", "rp": "Application_SimulateCDBCommandValidator.html", "cl": 44, "ucl": 0, "cal": 44, "tl": 63, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
+      { "name": "Application.CQRS.Handlers.Commands.SimulateCdbCommandHandler", "rp": "Application_SimulateCdbCommandHandler.html", "cl": 37, "ucl": 11, "cal": 48, "tl": 101, "cb": 3, "tb": 4, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
+      { "name": "Application.CQRS.Requests.Commands.SimulateCdbCommand", "rp": "Application_SimulateCdbCommand.html", "cl": 4, "ucl": 0, "cal": 4, "tl": 33, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
+      { "name": "Application.CQRS.Responses.Base.Response", "rp": "Application_Response.html", "cl": 6, "ucl": 0, "cal": 6, "tl": 29, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
+      { "name": "Application.CQRS.Responses.CDBCalculator.SimulateCdbResponse", "rp": "Application_SimulateCdbResponse.html", "cl": 4, "ucl": 0, "cal": 4, "tl": 25, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
+      { "name": "Application.ServiceCollectionExtensions", "rp": "Application_ServiceCollectionExtensions.html", "cl": 12, "ucl": 0, "cal": 12, "tl": 53, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
+      { "name": "Application.Validators.CDBCalculator.SimulateCdbCommandValidator", "rp": "Application_SimulateCdbCommandValidator.html", "cl": 44, "ucl": 0, "cal": 44, "tl": 93, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
     ]},
   {
     "name": "CDBCalculator",
     "classes": [
-      { "name": "CDBCalculator.Controllers.CDBController", "rp": "CDBCalculator_CDBController.html", "cl": 18, "ucl": 0, "cal": 18, "tl": 33, "cb": 14, "tb": 14, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
-      { "name": "CDBCalculator.Program", "rp": "CDBCalculator_Program.html", "cl": 5, "ucl": 3, "cal": 8, "tl": 15, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
-      { "name": "CDBCalculator.Startup", "rp": "CDBCalculator_Startup.html", "cl": 41, "ucl": 0, "cal": 41, "tl": 60, "cb": 2, "tb": 2, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
+      { "name": "CDBCalculator.Controllers.CdbController", "rp": "CDBCalculator_CdbController.html", "cl": 18, "ucl": 18, "cal": 36, "tl": 129, "cb": 14, "tb": 28, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
+      { "name": "CDBCalculator.Program", "rp": "CDBCalculator_Program.html", "cl": 10, "ucl": 12, "cal": 22, "tl": 82, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
+      { "name": "CDBCalculator.Startup", "rp": "CDBCalculator_Startup.html", "cl": 82, "ucl": 0, "cal": 82, "tl": 142, "cb": 4, "tb": 4, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
     ]},
   {
     "name": "CDBCalculator.Server",
     "classes": [
-      { "name": "CDBCalculator.Server.IWebHostApplicationEnvironmentExtensions", "rp": "CDBCalculator.Server_IWebHostApplicationEnvironmentExtensions.html", "cl": 1, "ucl": 0, "cal": 1, "tl": 8, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
-      { "name": "CDBCalculator.Server.Program", "rp": "CDBCalculator.Server_Program.html", "cl": 5, "ucl": 3, "cal": 8, "tl": 20, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
-      { "name": "CDBCalculator.Server.Startup", "rp": "CDBCalculator.Server_Startup.html", "cl": 44, "ucl": 0, "cal": 44, "tl": 68, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
+      { "name": "CDBCalculator.Server.IWebHostApplicationEnvironmentExtensions", "rp": "CDBCalculator.Server_IWebHostApplicationEnvironmentExtensions.html", "cl": 0, "ucl": 1, "cal": 1, "tl": 13, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
+      { "name": "CDBCalculator.Server.Program", "rp": "CDBCalculator.Server_Program.html", "cl": 0, "ucl": 11, "cal": 11, "tl": 45, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
+      { "name": "CDBCalculator.Server.Startup", "rp": "CDBCalculator.Server_Startup.html", "cl": 0, "ucl": 44, "cal": 44, "tl": 87, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
     ]},
   {
     "name": "Domain",
     "classes": [
-      { "name": "Domain.Business.Records.CDB", "rp": "Domain_CDB.html", "cl": 6, "ucl": 0, "cal": 6, "tl": 14, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
-      { "name": "Domain.Common.Exceptions.CDBCalculator.CDBException", "rp": "Domain_CDBException.html", "cl": 1, "ucl": 1, "cal": 2, "tl": 11, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
-      { "name": "Domain.Common.Exceptions.Http.BadRequestException", "rp": "Domain_BadRequestException.html", "cl": 1, "ucl": 1, "cal": 2, "tl": 17, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
-      { "name": "Domain.Common.Exceptions.Http.Base.HttpBaseException", "rp": "Domain_HttpBaseException.html", "cl": 9, "ucl": 9, "cal": 18, "tl": 33, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
+      { "name": "Domain.Business.Records.Cdb", "rp": "Domain_Cdb.html", "cl": 6, "ucl": 0, "cal": 6, "tl": 28, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
+      { "name": "Domain.Common.Exceptions.CDBCalculator.CdbException", "rp": "Domain_CdbException.html", "cl": 1, "ucl": 1, "cal": 2, "tl": 21, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
+      { "name": "Domain.Common.Exceptions.Http.BadRequestException", "rp": "Domain_BadRequestException.html", "cl": 1, "ucl": 1, "cal": 2, "tl": 31, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
+      { "name": "Domain.Common.Exceptions.Http.Base.HttpBaseException", "rp": "Domain_HttpBaseException.html", "cl": 9, "ucl": 9, "cal": 18, "tl": 69, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
     ]},
   {
     "name": "Infrastructure",
     "classes": [
-      { "name": "Infrastructure.ServiceCollectionExtensions", "rp": "Infrastructure_ServiceCollectionExtensions.html", "cl": 8, "ucl": 0, "cal": 8, "tl": 31, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
-      { "name": "Infrastructure.Services.CDBCalculator.CDBCalculator", "rp": "Infrastructure_CDBCalculator.html", "cl": 58, "ucl": 10, "cal": 68, "tl": 115, "cb": 20, "tb": 28, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
+      { "name": "Infrastructure.ServiceCollectionExtensions", "rp": "Infrastructure_ServiceCollectionExtensions.html", "cl": 8, "ucl": 0, "cal": 8, "tl": 47, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
+      { "name": "Infrastructure.Services.CDBCalculator.CdbCalculator", "rp": "Infrastructure_CdbCalculator.html", "cl": 58, "ucl": 10, "cal": 68, "tl": 177, "cb": 20, "tb": 28, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
     ]},
 ];
 
@@ -255,9 +255,17 @@ var metrics = [{ "name": "Crap Score", "abbreviation": "crp", "explanationUrl": 
 var historicCoverageExecutionTimes = [];
 
 var riskHotspotMetrics = [
+      { "name": "Crap Score", "explanationUrl": "https://googletesting.blogspot.de/2011/02/this-code-is-crap.html" },
+      { "name": "Cyclomatic complexity", "explanationUrl": "https://en.wikipedia.org/wiki/Cyclomatic_complexity" },
 ];
 
 var riskHotspots = [
+  {
+    "assembly": "CDBCalculator", "class": "CDBCalculator.Controllers.CdbController", "reportPath": "CDBCalculator_CdbController.html", "methodName": "Simulate()", "methodShortName": "Simulate()", "fileIndex": 1, "line": 43,
+    "metrics": [
+      { "value": 210, "exceeded": true },
+      { "value": 14, "exceeded": false },
+    ]},
 ];
 
 var branchCoverageAvailable = true;

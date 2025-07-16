@@ -29,11 +29,11 @@
 </tr>
 <tr>
 <th>Files:</th>
-<td class="limit-width right" title="30">30</td>
+<td class="limit-width right" title="33">33</td>
 </tr>
 <tr>
 <th>Coverage date:</th>
-<td class="limit-width " title="07/14/2025 - 00:01:09 - 07/14/2025 - 00:01:52">07/14/2025 - 00:01:09 - 07/14/2025 - 00:01:52</td>
+<td class="limit-width " title="07/16/2025 - 04:41:50 - 07/16/2025 - 04:42:33">07/16/2025 - 04:41:50 - 07/16/2025 - 04:42:33</td>
 </tr>
 </table>
 </div>
@@ -42,28 +42,28 @@
 <div class="card">
 <div class="card-header">Line coverage</div>
 <div class="card-body">
-<div class="large cardpercentagebar cardpercentagebar11">88%</div>
+<div class="large cardpercentagebar cardpercentagebar28">71%</div>
 <div class="table">
 <table>
 <tr>
 <th>Covered lines:</th>
-<td class="limit-width right" title="304">304</td>
+<td class="limit-width right" title="300">300</td>
 </tr>
 <tr>
 <th>Uncovered lines:</th>
-<td class="limit-width right" title="38">38</td>
+<td class="limit-width right" title="118">118</td>
 </tr>
 <tr>
 <th>Coverable lines:</th>
-<td class="limit-width right" title="342">342</td>
+<td class="limit-width right" title="418">418</td>
 </tr>
 <tr>
 <th>Total lines:</th>
-<td class="limit-width right" title="663">663</td>
+<td class="limit-width right" title="1205">1205</td>
 </tr>
 <tr>
 <th>Line coverage:</th>
-<td class="limit-width right" title="304 of 342">88.8%</td>
+<td class="limit-width right" title="300 of 418">71.7%</td>
 </tr>
 </table>
 </div>
@@ -72,20 +72,20 @@
 <div class="card">
 <div class="card-header">Branch coverage</div>
 <div class="card-body">
-<div class="large cardpercentagebar cardpercentagebar19">81%</div>
+<div class="large cardpercentagebar cardpercentagebar36">64%</div>
 <div class="table">
 <table>
 <tr>
 <th>Covered branches:</th>
-<td class="limit-width right" title="39">39</td>
+<td class="limit-width right" title="41">41</td>
 </tr>
 <tr>
 <th>Total branches:</th>
-<td class="limit-width right" title="48">48</td>
+<td class="limit-width right" title="64">64</td>
 </tr>
 <tr>
 <th>Branch coverage:</th>
-<td class="limit-width right" title="39 of 48">81.2%</td>
+<td class="limit-width right" title="41 of 64">64%</td>
 </tr>
 </table>
 </div>
@@ -103,8 +103,32 @@
 </div>
 <h1>Risk Hotspots</h1>
 <risk-hotspots>
+<div class="table-responsive">
+<table class="overview table-fixed stripped">
+<colgroup>
+<col class="column-min-200" />
+<col class="column-min-200" />
+<col class="column-min-200" />
+<col class="column105" />
+<col class="column105" />
+</colgroup>
+<thead><tr><th>Assembly</th>
+<th>Class</th>
+<th>Method</th>
+<th>Crap Score <a href="https://googletesting.blogspot.de/2011/02/this-code-is-crap.html" target="_blank"><i class="icon-info-circled"></i></a></th>
+<th>Cyclomatic complexity <a href="https://en.wikipedia.org/wiki/Cyclomatic_complexity" target="_blank"><i class="icon-info-circled"></i></a></th>
+</tr></thead>
+<tbody>
+<tr>
+<td>CDBCalculator</td>
+<td><a href="CDBCalculator_CdbController.html">CDBCalculator.Controllers.CdbController</a></td>
+<td title="Simulate()"><a href="CDBCalculator_CdbController.html#file1_line43">Simulate()</a></td><td class="lightred right">210</td>
+<td class="lightgreen right">14</td>
+</tr>
+</tbody>
+</table>
+</div>
 </risk-hotspots>
-<p>No risk hotspots found.</p>
 <h1>Coverage</h1>
 <coverage-info>
 <div class="table-responsive">
@@ -126,34 +150,34 @@
 <tr class="header"><th></th><th colspan="6" class="center">Line coverage</th><th colspan="4" class="center">Branch coverage</th></tr>
 <tr><th>Name</th><th class="right">Covered</th><th class="right">Uncovered</th><th class="right">Coverable</th><th class="right">Total</th><th class="center" colspan="2">Percentage</th><th class="right">Covered</th><th class="right">Total</th><th class="center" colspan="2">Percentage</th></tr></thead>
 <tbody>
-<tr><th>Application</th><th class="right">107</th><th class="right">11</th><th class="right">118</th><th class="right">238</th><th title="107/118" class="right">90.6%</th><th><table class="coverage"><tr><td class="green covered91">&nbsp;</td><td class="red covered9">&nbsp;</td></tr></table></th><th class="right">3</th><th class="right">4</th><th class="right" title="3/4">75%</th><th><table class="coverage"><tr><td class="green covered75">&nbsp;</td><td class="red covered25">&nbsp;</td></tr></table></th></tr>
-<tr><td><a href="Application_SimulateCDBCommandHandler.html">Application.CQRS.Handlers.Commands.SimulateCDBCommandHandler</a></td><td class="right">37</td><td class="right">11</td><td class="right">48</td><td class="right">89</td><td title="37/48" class="right">77%</td><td><table class="coverage"><tr><td class="green covered77">&nbsp;</td><td class="red covered23">&nbsp;</td></tr></table></td><td class="right">3</td><td class="right">4</td><td class="right" title="3/4">75%</td><td><table class="coverage"><tr><td class="green covered75">&nbsp;</td><td class="red covered25">&nbsp;</td></tr></table></td></tr>
-<tr><td><a href="Application_SimulateCDBCommand.html">Application.CQRS.Requests.Commands.SimulateCDBCommand</a></td><td class="right">4</td><td class="right">0</td><td class="right">4</td><td class="right">21</td><td title="4/4" class="right">100%</td><td><table class="coverage"><tr><td class="green covered100">&nbsp;</td></tr></table></td><td class="right">0</td><td class="right">0</td><td class="right" title="-"></td><td><table class="coverage"><tr><td class="gray covered100">&nbsp;</td></tr></table></td></tr>
-<tr><td><a href="Application_Response.html">Application.CQRS.Responses.Base.Response</a></td><td class="right">6</td><td class="right">0</td><td class="right">6</td><td class="right">17</td><td title="6/6" class="right">100%</td><td><table class="coverage"><tr><td class="green covered100">&nbsp;</td></tr></table></td><td class="right">0</td><td class="right">0</td><td class="right" title="-"></td><td><table class="coverage"><tr><td class="gray covered100">&nbsp;</td></tr></table></td></tr>
-<tr><td><a href="Application_SimulateCDBResponse.html">Application.CQRS.Responses.CDBCalculator.SimulateCDBResponse</a></td><td class="right">4</td><td class="right">0</td><td class="right">4</td><td class="right">15</td><td title="4/4" class="right">100%</td><td><table class="coverage"><tr><td class="green covered100">&nbsp;</td></tr></table></td><td class="right">0</td><td class="right">0</td><td class="right" title="-"></td><td><table class="coverage"><tr><td class="gray covered100">&nbsp;</td></tr></table></td></tr>
-<tr><td><a href="Application_ServiceCollectionExtensions.html">Application.ServiceCollectionExtensions</a></td><td class="right">12</td><td class="right">0</td><td class="right">12</td><td class="right">33</td><td title="12/12" class="right">100%</td><td><table class="coverage"><tr><td class="green covered100">&nbsp;</td></tr></table></td><td class="right">0</td><td class="right">0</td><td class="right" title="-"></td><td><table class="coverage"><tr><td class="gray covered100">&nbsp;</td></tr></table></td></tr>
-<tr><td><a href="Application_SimulateCDBCommandValidator.html">Application.Validators.CDBCalculator.SimulateCDBCommandValidator</a></td><td class="right">44</td><td class="right">0</td><td class="right">44</td><td class="right">63</td><td title="44/44" class="right">100%</td><td><table class="coverage"><tr><td class="green covered100">&nbsp;</td></tr></table></td><td class="right">0</td><td class="right">0</td><td class="right" title="-"></td><td><table class="coverage"><tr><td class="gray covered100">&nbsp;</td></tr></table></td></tr>
-<tr><th>CDBCalculator</th><th class="right">64</th><th class="right">3</th><th class="right">67</th><th class="right">108</th><th title="64/67" class="right">95.5%</th><th><table class="coverage"><tr><td class="green covered96">&nbsp;</td><td class="red covered4">&nbsp;</td></tr></table></th><th class="right">16</th><th class="right">16</th><th class="right" title="16/16">100%</th><th><table class="coverage"><tr><td class="green covered100">&nbsp;</td></tr></table></th></tr>
-<tr><td><a href="CDBCalculator_CDBController.html">CDBCalculator.Controllers.CDBController</a></td><td class="right">18</td><td class="right">0</td><td class="right">18</td><td class="right">33</td><td title="18/18" class="right">100%</td><td><table class="coverage"><tr><td class="green covered100">&nbsp;</td></tr></table></td><td class="right">14</td><td class="right">14</td><td class="right" title="14/14">100%</td><td><table class="coverage"><tr><td class="green covered100">&nbsp;</td></tr></table></td></tr>
-<tr><td><a href="CDBCalculator_Program.html">CDBCalculator.Program</a></td><td class="right">5</td><td class="right">3</td><td class="right">8</td><td class="right">15</td><td title="5/8" class="right">62.5%</td><td><table class="coverage"><tr><td class="green covered62">&nbsp;</td><td class="red covered38">&nbsp;</td></tr></table></td><td class="right">0</td><td class="right">0</td><td class="right" title="-"></td><td><table class="coverage"><tr><td class="gray covered100">&nbsp;</td></tr></table></td></tr>
-<tr><td><a href="CDBCalculator_Startup.html">CDBCalculator.Startup</a></td><td class="right">41</td><td class="right">0</td><td class="right">41</td><td class="right">60</td><td title="41/41" class="right">100%</td><td><table class="coverage"><tr><td class="green covered100">&nbsp;</td></tr></table></td><td class="right">2</td><td class="right">2</td><td class="right" title="2/2">100%</td><td><table class="coverage"><tr><td class="green covered100">&nbsp;</td></tr></table></td></tr>
-<tr><th>CDBCalculator.Server</th><th class="right">50</th><th class="right">3</th><th class="right">53</th><th class="right">96</th><th title="50/53" class="right">94.3%</th><th><table class="coverage"><tr><td class="green covered94">&nbsp;</td><td class="red covered6">&nbsp;</td></tr></table></th><th class="right">0</th><th class="right">0</th><th class="right" title="-"></th><th><table class="coverage"><tr><td class="gray covered100">&nbsp;</td></tr></table></th></tr>
-<tr><td><a href="CDBCalculator.Server_IWebHostApplicationEnvironmentExtensions.html">CDBCalculator.Server.IWebHostApplicationEnvironmentExtensions</a></td><td class="right">1</td><td class="right">0</td><td class="right">1</td><td class="right">8</td><td title="1/1" class="right">100%</td><td><table class="coverage"><tr><td class="green covered100">&nbsp;</td></tr></table></td><td class="right">0</td><td class="right">0</td><td class="right" title="-"></td><td><table class="coverage"><tr><td class="gray covered100">&nbsp;</td></tr></table></td></tr>
-<tr><td><a href="CDBCalculator.Server_Program.html">CDBCalculator.Server.Program</a></td><td class="right">5</td><td class="right">3</td><td class="right">8</td><td class="right">20</td><td title="5/8" class="right">62.5%</td><td><table class="coverage"><tr><td class="green covered62">&nbsp;</td><td class="red covered38">&nbsp;</td></tr></table></td><td class="right">0</td><td class="right">0</td><td class="right" title="-"></td><td><table class="coverage"><tr><td class="gray covered100">&nbsp;</td></tr></table></td></tr>
-<tr><td><a href="CDBCalculator.Server_Startup.html">CDBCalculator.Server.Startup</a></td><td class="right">44</td><td class="right">0</td><td class="right">44</td><td class="right">68</td><td title="44/44" class="right">100%</td><td><table class="coverage"><tr><td class="green covered100">&nbsp;</td></tr></table></td><td class="right">0</td><td class="right">0</td><td class="right" title="-"></td><td><table class="coverage"><tr><td class="gray covered100">&nbsp;</td></tr></table></td></tr>
-<tr><th>Domain</th><th class="right">17</th><th class="right">11</th><th class="right">28</th><th class="right">75</th><th title="17/28" class="right">60.7%</th><th><table class="coverage"><tr><td class="green covered61">&nbsp;</td><td class="red covered39">&nbsp;</td></tr></table></th><th class="right">0</th><th class="right">0</th><th class="right" title="-"></th><th><table class="coverage"><tr><td class="gray covered100">&nbsp;</td></tr></table></th></tr>
-<tr><td><a href="Domain_CDB.html">Domain.Business.Records.CDB</a></td><td class="right">6</td><td class="right">0</td><td class="right">6</td><td class="right">14</td><td title="6/6" class="right">100%</td><td><table class="coverage"><tr><td class="green covered100">&nbsp;</td></tr></table></td><td class="right">0</td><td class="right">0</td><td class="right" title="-"></td><td><table class="coverage"><tr><td class="gray covered100">&nbsp;</td></tr></table></td></tr>
-<tr><td><a href="Domain_CDBException.html">Domain.Common.Exceptions.CDBCalculator.CDBException</a></td><td class="right">1</td><td class="right">1</td><td class="right">2</td><td class="right">11</td><td title="1/2" class="right">50%</td><td><table class="coverage"><tr><td class="green covered50">&nbsp;</td><td class="red covered50">&nbsp;</td></tr></table></td><td class="right">0</td><td class="right">0</td><td class="right" title="-"></td><td><table class="coverage"><tr><td class="gray covered100">&nbsp;</td></tr></table></td></tr>
-<tr><td><a href="Domain_BadRequestException.html">Domain.Common.Exceptions.Http.BadRequestException</a></td><td class="right">1</td><td class="right">1</td><td class="right">2</td><td class="right">17</td><td title="1/2" class="right">50%</td><td><table class="coverage"><tr><td class="green covered50">&nbsp;</td><td class="red covered50">&nbsp;</td></tr></table></td><td class="right">0</td><td class="right">0</td><td class="right" title="-"></td><td><table class="coverage"><tr><td class="gray covered100">&nbsp;</td></tr></table></td></tr>
-<tr><td><a href="Domain_HttpBaseException.html">Domain.Common.Exceptions.Http.Base.HttpBaseException</a></td><td class="right">9</td><td class="right">9</td><td class="right">18</td><td class="right">33</td><td title="9/18" class="right">50%</td><td><table class="coverage"><tr><td class="green covered50">&nbsp;</td><td class="red covered50">&nbsp;</td></tr></table></td><td class="right">0</td><td class="right">0</td><td class="right" title="-"></td><td><table class="coverage"><tr><td class="gray covered100">&nbsp;</td></tr></table></td></tr>
-<tr><th>Infrastructure</th><th class="right">66</th><th class="right">10</th><th class="right">76</th><th class="right">146</th><th title="66/76" class="right">86.8%</th><th><table class="coverage"><tr><td class="green covered87">&nbsp;</td><td class="red covered13">&nbsp;</td></tr></table></th><th class="right">20</th><th class="right">28</th><th class="right" title="20/28">71.4%</th><th><table class="coverage"><tr><td class="green covered71">&nbsp;</td><td class="red covered29">&nbsp;</td></tr></table></th></tr>
-<tr><td><a href="Infrastructure_ServiceCollectionExtensions.html">Infrastructure.ServiceCollectionExtensions</a></td><td class="right">8</td><td class="right">0</td><td class="right">8</td><td class="right">31</td><td title="8/8" class="right">100%</td><td><table class="coverage"><tr><td class="green covered100">&nbsp;</td></tr></table></td><td class="right">0</td><td class="right">0</td><td class="right" title="-"></td><td><table class="coverage"><tr><td class="gray covered100">&nbsp;</td></tr></table></td></tr>
-<tr><td><a href="Infrastructure_CDBCalculator.html">Infrastructure.Services.CDBCalculator.CDBCalculator</a></td><td class="right">58</td><td class="right">10</td><td class="right">68</td><td class="right">115</td><td title="58/68" class="right">85.2%</td><td><table class="coverage"><tr><td class="green covered85">&nbsp;</td><td class="red covered15">&nbsp;</td></tr></table></td><td class="right">20</td><td class="right">28</td><td class="right" title="20/28">71.4%</td><td><table class="coverage"><tr><td class="green covered71">&nbsp;</td><td class="red covered29">&nbsp;</td></tr></table></td></tr>
+<tr><th>Application</th><th class="right">107</th><th class="right">11</th><th class="right">118</th><th class="right">334</th><th title="107/118" class="right">90.6%</th><th><table class="coverage"><tr><td class="green covered91">&nbsp;</td><td class="red covered9">&nbsp;</td></tr></table></th><th class="right">3</th><th class="right">4</th><th class="right" title="3/4">75%</th><th><table class="coverage"><tr><td class="green covered75">&nbsp;</td><td class="red covered25">&nbsp;</td></tr></table></th></tr>
+<tr><td><a href="Application_SimulateCdbCommandHandler.html">Application.CQRS.Handlers.Commands.SimulateCdbCommandHandler</a></td><td class="right">37</td><td class="right">11</td><td class="right">48</td><td class="right">101</td><td title="37/48" class="right">77%</td><td><table class="coverage"><tr><td class="green covered77">&nbsp;</td><td class="red covered23">&nbsp;</td></tr></table></td><td class="right">3</td><td class="right">4</td><td class="right" title="3/4">75%</td><td><table class="coverage"><tr><td class="green covered75">&nbsp;</td><td class="red covered25">&nbsp;</td></tr></table></td></tr>
+<tr><td><a href="Application_SimulateCdbCommand.html">Application.CQRS.Requests.Commands.SimulateCdbCommand</a></td><td class="right">4</td><td class="right">0</td><td class="right">4</td><td class="right">33</td><td title="4/4" class="right">100%</td><td><table class="coverage"><tr><td class="green covered100">&nbsp;</td></tr></table></td><td class="right">0</td><td class="right">0</td><td class="right" title="-"></td><td><table class="coverage"><tr><td class="gray covered100">&nbsp;</td></tr></table></td></tr>
+<tr><td><a href="Application_Response.html">Application.CQRS.Responses.Base.Response</a></td><td class="right">6</td><td class="right">0</td><td class="right">6</td><td class="right">29</td><td title="6/6" class="right">100%</td><td><table class="coverage"><tr><td class="green covered100">&nbsp;</td></tr></table></td><td class="right">0</td><td class="right">0</td><td class="right" title="-"></td><td><table class="coverage"><tr><td class="gray covered100">&nbsp;</td></tr></table></td></tr>
+<tr><td><a href="Application_SimulateCdbResponse.html">Application.CQRS.Responses.CDBCalculator.SimulateCdbResponse</a></td><td class="right">4</td><td class="right">0</td><td class="right">4</td><td class="right">25</td><td title="4/4" class="right">100%</td><td><table class="coverage"><tr><td class="green covered100">&nbsp;</td></tr></table></td><td class="right">0</td><td class="right">0</td><td class="right" title="-"></td><td><table class="coverage"><tr><td class="gray covered100">&nbsp;</td></tr></table></td></tr>
+<tr><td><a href="Application_ServiceCollectionExtensions.html">Application.ServiceCollectionExtensions</a></td><td class="right">12</td><td class="right">0</td><td class="right">12</td><td class="right">53</td><td title="12/12" class="right">100%</td><td><table class="coverage"><tr><td class="green covered100">&nbsp;</td></tr></table></td><td class="right">0</td><td class="right">0</td><td class="right" title="-"></td><td><table class="coverage"><tr><td class="gray covered100">&nbsp;</td></tr></table></td></tr>
+<tr><td><a href="Application_SimulateCdbCommandValidator.html">Application.Validators.CDBCalculator.SimulateCdbCommandValidator</a></td><td class="right">44</td><td class="right">0</td><td class="right">44</td><td class="right">93</td><td title="44/44" class="right">100%</td><td><table class="coverage"><tr><td class="green covered100">&nbsp;</td></tr></table></td><td class="right">0</td><td class="right">0</td><td class="right" title="-"></td><td><table class="coverage"><tr><td class="gray covered100">&nbsp;</td></tr></table></td></tr>
+<tr><th>CDBCalculator</th><th class="right">110</th><th class="right">30</th><th class="right">140</th><th class="right">353</th><th title="110/140" class="right">78.5%</th><th><table class="coverage"><tr><td class="green covered78">&nbsp;</td><td class="red covered22">&nbsp;</td></tr></table></th><th class="right">18</th><th class="right">32</th><th class="right" title="18/32">56.2%</th><th><table class="coverage"><tr><td class="green covered56">&nbsp;</td><td class="red covered44">&nbsp;</td></tr></table></th></tr>
+<tr><td><a href="CDBCalculator_CdbController.html">CDBCalculator.Controllers.CdbController</a></td><td class="right">18</td><td class="right">18</td><td class="right">36</td><td class="right">129</td><td title="18/36" class="right">50%</td><td><table class="coverage"><tr><td class="green covered50">&nbsp;</td><td class="red covered50">&nbsp;</td></tr></table></td><td class="right">14</td><td class="right">28</td><td class="right" title="14/28">50%</td><td><table class="coverage"><tr><td class="green covered50">&nbsp;</td><td class="red covered50">&nbsp;</td></tr></table></td></tr>
+<tr><td><a href="CDBCalculator_Program.html">CDBCalculator.Program</a></td><td class="right">10</td><td class="right">12</td><td class="right">22</td><td class="right">82</td><td title="10/22" class="right">45.4%</td><td><table class="coverage"><tr><td class="green covered45">&nbsp;</td><td class="red covered55">&nbsp;</td></tr></table></td><td class="right">0</td><td class="right">0</td><td class="right" title="-"></td><td><table class="coverage"><tr><td class="gray covered100">&nbsp;</td></tr></table></td></tr>
+<tr><td><a href="CDBCalculator_Startup.html">CDBCalculator.Startup</a></td><td class="right">82</td><td class="right">0</td><td class="right">82</td><td class="right">142</td><td title="82/82" class="right">100%</td><td><table class="coverage"><tr><td class="green covered100">&nbsp;</td></tr></table></td><td class="right">4</td><td class="right">4</td><td class="right" title="4/4">100%</td><td><table class="coverage"><tr><td class="green covered100">&nbsp;</td></tr></table></td></tr>
+<tr><th>CDBCalculator.Server</th><th class="right">0</th><th class="right">56</th><th class="right">56</th><th class="right">145</th><th title="0/56" class="right">0%</th><th><table class="coverage"><tr><td class="red covered100">&nbsp;</td></tr></table></th><th class="right">0</th><th class="right">0</th><th class="right" title="-"></th><th><table class="coverage"><tr><td class="gray covered100">&nbsp;</td></tr></table></th></tr>
+<tr><td><a href="CDBCalculator.Server_IWebHostApplicationEnvironmentExtensions.html">CDBCalculator.Server.IWebHostApplicationEnvironmentExtensions</a></td><td class="right">0</td><td class="right">1</td><td class="right">1</td><td class="right">13</td><td title="0/1" class="right">0%</td><td><table class="coverage"><tr><td class="red covered100">&nbsp;</td></tr></table></td><td class="right">0</td><td class="right">0</td><td class="right" title="-"></td><td><table class="coverage"><tr><td class="gray covered100">&nbsp;</td></tr></table></td></tr>
+<tr><td><a href="CDBCalculator.Server_Program.html">CDBCalculator.Server.Program</a></td><td class="right">0</td><td class="right">11</td><td class="right">11</td><td class="right">45</td><td title="0/11" class="right">0%</td><td><table class="coverage"><tr><td class="red covered100">&nbsp;</td></tr></table></td><td class="right">0</td><td class="right">0</td><td class="right" title="-"></td><td><table class="coverage"><tr><td class="gray covered100">&nbsp;</td></tr></table></td></tr>
+<tr><td><a href="CDBCalculator.Server_Startup.html">CDBCalculator.Server.Startup</a></td><td class="right">0</td><td class="right">44</td><td class="right">44</td><td class="right">87</td><td title="0/44" class="right">0%</td><td><table class="coverage"><tr><td class="red covered100">&nbsp;</td></tr></table></td><td class="right">0</td><td class="right">0</td><td class="right" title="-"></td><td><table class="coverage"><tr><td class="gray covered100">&nbsp;</td></tr></table></td></tr>
+<tr><th>Domain</th><th class="right">17</th><th class="right">11</th><th class="right">28</th><th class="right">149</th><th title="17/28" class="right">60.7%</th><th><table class="coverage"><tr><td class="green covered61">&nbsp;</td><td class="red covered39">&nbsp;</td></tr></table></th><th class="right">0</th><th class="right">0</th><th class="right" title="-"></th><th><table class="coverage"><tr><td class="gray covered100">&nbsp;</td></tr></table></th></tr>
+<tr><td><a href="Domain_Cdb.html">Domain.Business.Records.Cdb</a></td><td class="right">6</td><td class="right">0</td><td class="right">6</td><td class="right">28</td><td title="6/6" class="right">100%</td><td><table class="coverage"><tr><td class="green covered100">&nbsp;</td></tr></table></td><td class="right">0</td><td class="right">0</td><td class="right" title="-"></td><td><table class="coverage"><tr><td class="gray covered100">&nbsp;</td></tr></table></td></tr>
+<tr><td><a href="Domain_CdbException.html">Domain.Common.Exceptions.CDBCalculator.CdbException</a></td><td class="right">1</td><td class="right">1</td><td class="right">2</td><td class="right">21</td><td title="1/2" class="right">50%</td><td><table class="coverage"><tr><td class="green covered50">&nbsp;</td><td class="red covered50">&nbsp;</td></tr></table></td><td class="right">0</td><td class="right">0</td><td class="right" title="-"></td><td><table class="coverage"><tr><td class="gray covered100">&nbsp;</td></tr></table></td></tr>
+<tr><td><a href="Domain_BadRequestException.html">Domain.Common.Exceptions.Http.BadRequestException</a></td><td class="right">1</td><td class="right">1</td><td class="right">2</td><td class="right">31</td><td title="1/2" class="right">50%</td><td><table class="coverage"><tr><td class="green covered50">&nbsp;</td><td class="red covered50">&nbsp;</td></tr></table></td><td class="right">0</td><td class="right">0</td><td class="right" title="-"></td><td><table class="coverage"><tr><td class="gray covered100">&nbsp;</td></tr></table></td></tr>
+<tr><td><a href="Domain_HttpBaseException.html">Domain.Common.Exceptions.Http.Base.HttpBaseException</a></td><td class="right">9</td><td class="right">9</td><td class="right">18</td><td class="right">69</td><td title="9/18" class="right">50%</td><td><table class="coverage"><tr><td class="green covered50">&nbsp;</td><td class="red covered50">&nbsp;</td></tr></table></td><td class="right">0</td><td class="right">0</td><td class="right" title="-"></td><td><table class="coverage"><tr><td class="gray covered100">&nbsp;</td></tr></table></td></tr>
+<tr><th>Infrastructure</th><th class="right">66</th><th class="right">10</th><th class="right">76</th><th class="right">224</th><th title="66/76" class="right">86.8%</th><th><table class="coverage"><tr><td class="green covered87">&nbsp;</td><td class="red covered13">&nbsp;</td></tr></table></th><th class="right">20</th><th class="right">28</th><th class="right" title="20/28">71.4%</th><th><table class="coverage"><tr><td class="green covered71">&nbsp;</td><td class="red covered29">&nbsp;</td></tr></table></th></tr>
+<tr><td><a href="Infrastructure_ServiceCollectionExtensions.html">Infrastructure.ServiceCollectionExtensions</a></td><td class="right">8</td><td class="right">0</td><td class="right">8</td><td class="right">47</td><td title="8/8" class="right">100%</td><td><table class="coverage"><tr><td class="green covered100">&nbsp;</td></tr></table></td><td class="right">0</td><td class="right">0</td><td class="right" title="-"></td><td><table class="coverage"><tr><td class="gray covered100">&nbsp;</td></tr></table></td></tr>
+<tr><td><a href="Infrastructure_CdbCalculator.html">Infrastructure.Services.CDBCalculator.CdbCalculator</a></td><td class="right">58</td><td class="right">10</td><td class="right">68</td><td class="right">177</td><td title="58/68" class="right">85.2%</td><td><table class="coverage"><tr><td class="green covered85">&nbsp;</td><td class="red covered15">&nbsp;</td></tr></table></td><td class="right">20</td><td class="right">28</td><td class="right" title="20/28">71.4%</td><td><table class="coverage"><tr><td class="green covered71">&nbsp;</td><td class="red covered29">&nbsp;</td></tr></table></td></tr>
 </tbody>
 </table>
 </div>
 </coverage-info>
-<div class="footer">Generated by: ReportGenerator 5.4.8.0<br />07/14/2025 - 00:01:54<br /><a href="https://github.com/danielpalme/ReportGenerator">GitHub</a> | <a href="https://reportgenerator.io">reportgenerator.io</a></div></div></div>
+<div class="footer">Generated by: ReportGenerator 5.4.8.0<br />07/16/2025 - 04:42:35<br /><a href="https://github.com/danielpalme/ReportGenerator">GitHub</a> | <a href="https://reportgenerator.io">reportgenerator.io</a></div></div></div>
 <script type="text/javascript">
 /* <![CDATA[ */
 (function() {
