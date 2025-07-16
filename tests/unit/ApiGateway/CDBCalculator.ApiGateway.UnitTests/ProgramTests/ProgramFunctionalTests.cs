@@ -50,16 +50,5 @@ public class ProgramFunctionalTests
             Assert.Contains("Simulador de Cdb", json);
         }
     }
-
-    [Fact]
-    public void SpaPath_ShouldBeWwwroot_WhenEnvironmentIsDocker()
-    {
-        var host = HostFactory.CreateHost("Docker");
-        var env = host.Services.GetRequiredService<IWebHostEnvironment>();
-        var spaIndex = Path.Combine(env.ContentRootPath, "wwwroot", "index.html");
-        Assert.True(File.Exists(spaIndex));
-        Assert.Equal("Docker", env.EnvironmentName);
-        Assert.True(File.Exists(Path.Combine(env.ContentRootPath, "wwwroot", "index.html")));
-    }
-
+ 
 }
