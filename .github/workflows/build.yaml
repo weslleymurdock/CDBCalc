@@ -29,3 +29,28 @@ jobs:
 
     - name: Build
       run: dotnet build CDBCalc.sln --configuration Release
+
+  test:
+    name: Run Tests 
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v4
+
+    - name: Setup .NET SDK
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: 8.0.x
+        
+    - name: Restore
+      run: dotnet restore CDBCalc.sln
+
+    - name: Test
+      run: |
+          dotnet test "tests/unit/Application/CDBCalculator.Application.UnitTests/CDBCalculator.Application.UnitTests.csproj" 
+          dotnet test "tests/unit/Domain/CDBCalculator.Domain.UnitTests/CDBCalculator.Domain.UnitTests.csproj"
+          dotnet test "tests/unit/Infrastructure/CDBCalculator.Infrastructure.UnitTests/CDBCalculator.Infrastructure.UnitTests.csproj"
+          dotnet test "tests/unit/MicroServices/CDBCalculator.MicroService.UnitTests/CDBCalculator.MicroService.UnitTests.csproj"
+          dotnet test "tests/unit/ApiGateway/CDBCalculator.ApiGateway.UnitTests/CDBCalculator.ApiGateway.UnitTests.csproj"

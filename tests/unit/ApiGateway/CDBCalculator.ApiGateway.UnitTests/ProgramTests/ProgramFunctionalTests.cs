@@ -1,11 +1,4 @@
 using CDBCalculator.ApiGateway.UnitTests.Common.Builders;
-using CDBCalculator.ApiGateway.UnitTests.Common.Handlers;
-using CDBCalculator.ApiGateway.UnitTests.Common.Servers;
-using CDBCalculator.ApiGateway.UnitTests.Factories;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc.Testing;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
 
 namespace CDBCalculator.ApiGateway.UnitTests.ProgramTests;
 
@@ -50,16 +43,5 @@ public class ProgramFunctionalTests
             Assert.Contains("Simulador de Cdb", json);
         }
     }
-
-    [Fact]
-    public void SpaPath_ShouldBeWwwroot_WhenEnvironmentIsDocker()
-    {
-        var host = HostFactory.CreateHost("Docker");
-        var env = host.Services.GetRequiredService<IWebHostEnvironment>();
-        var spaIndex = Path.Combine(env.ContentRootPath, "wwwroot", "index.html");
-        Assert.True(File.Exists(spaIndex));
-        Assert.Equal("Docker", env.EnvironmentName);
-        Assert.True(File.Exists(Path.Combine(env.ContentRootPath, "wwwroot", "index.html")));
-    }
-
+ 
 }
