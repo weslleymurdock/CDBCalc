@@ -1,11 +1,4 @@
 using CDBCalculator.ApiGateway.UnitTests.Common.Builders;
-using CDBCalculator.ApiGateway.UnitTests.Common.Handlers;
-using CDBCalculator.ApiGateway.UnitTests.Common.Servers;
-using CDBCalculator.ApiGateway.UnitTests.Factories;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc.Testing;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
 
 namespace CDBCalculator.ApiGateway.UnitTests.ProgramTests;
 
