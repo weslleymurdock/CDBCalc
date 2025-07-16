@@ -1,7 +1,8 @@
-﻿using Yarp.ReverseProxy;
+﻿using System.Diagnostics.CodeAnalysis;
+using Yarp.ReverseProxy;
 
 namespace CDBCalculator.Server;
-
+[ExcludeFromCodeCoverage]
 /// <summary>
 /// Configures services and middleware for the application.
 /// </summary>
@@ -59,7 +60,7 @@ public class Startup(IConfiguration config, IWebHostEnvironment env)
         
         app.UseSwaggerUI(c =>
         {
-            c.SwaggerEndpoint(config["MicroServices:CDBCalc:Swagger:Uri"], config["MicroServices:CDBCalc:Swagger:Name"]);
+            c.SwaggerEndpoint(config.GetSection("MicroServices:CDBCalc:Swagger:Uri").Value, config.GetSection("MicroServices:CDBCalc:Swagger:Name").Value);
             c.RoutePrefix = "swagger";
         });
 
@@ -83,5 +84,4 @@ public class Startup(IConfiguration config, IWebHostEnvironment env)
             spa.Options.SourcePath = "../cdbcalculator.client";
         });
     }
-
 }
