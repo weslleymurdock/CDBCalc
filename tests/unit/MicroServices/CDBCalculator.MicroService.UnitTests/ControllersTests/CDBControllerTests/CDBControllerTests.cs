@@ -120,7 +120,7 @@ public class CDBControllerTests
     [Fact]
     public async Task Simulate_WhenMessageIsNull_ShouldReturnStatusOnly()
     {
-        var response = new SimulateCdbResponse { StatusCode = 500, Message = null, Success = false };
+        var response = new SimulateCdbResponse { StatusCode = 500, Message = null!, Success = false };
 
         _mediator.Send(Arg.Any<SimulateCdbCommand>(), Arg.Any<CancellationToken>())
                  .Returns(response);
