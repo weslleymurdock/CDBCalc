@@ -1,7 +1,9 @@
 ﻿using Microsoft.OpenApi.Models;
 using Application;
+using System.Diagnostics.CodeAnalysis;
 
 namespace CDBCalculator;
+[ExcludeFromCodeCoverage]
 /// <summary>
 /// Configures the application services and middleware for the CDB Calculator microservice.
 /// </summary>

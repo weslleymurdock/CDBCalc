@@ -1,7 +1,7 @@
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Hosting;
+using System.Diagnostics.CodeAnalysis;
 
 namespace CDBCalculator.Server;
+[ExcludeFromCodeCoverage]
 /// <summary>
 /// Provides the entry point for the application and methods to configure and build the host.
 /// </summary>
@@ -22,9 +22,9 @@ public class Program
     /// The entry point of the application.
     /// </summary>
     /// <param name="args">An array of command-line arguments passed to the application.</param>
-    private static void Main(string[] args)
+    private static async Task Main(string[] args)
     {
-        CreateHostBuilder(args).Build().Run();
+        await CreateHostBuilder(args).Build().RunAsync();
     }
 
     /// <summary>

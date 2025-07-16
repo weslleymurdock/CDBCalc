@@ -1,4 +1,7 @@
+using System.Diagnostics.CodeAnalysis;
+
 namespace CDBCalculator;
+[ExcludeFromCodeCoverage]
 /// <summary>
 /// Provides the entry point for the application and methods to configure and build the host.
 /// </summary>
