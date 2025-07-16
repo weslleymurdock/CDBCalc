@@ -36,11 +36,11 @@ public class SimulateCdbCommandValidator : AbstractValidator<SimulateCdbCommand>
             .GreaterThanOrEqualTo(1u).WithMessage("The months property value must be greather than or equals to 1");
         RuleFor(cdb => cdb.InitialValue)
             .NotEmpty()
-            .WithMessage("The months command poperty must not be empty")
+            .WithMessage("The InitialValue command poperty must not be empty")
             .NotNull()
-            .WithMessage("The months command poperty must not be null");
+            .WithMessage("The InitialValue command poperty must not be null");
         RuleFor(cdb => cdb.InitialValue)
-            .GreaterThanOrEqualTo(1.00d).WithMessage("The months property value must be greather than or equals to 1.00");
+            .GreaterThanOrEqualTo(1.00d).WithMessage("The InitialValue property value must be greather than or equals to 1.00");
 
     }
 }
