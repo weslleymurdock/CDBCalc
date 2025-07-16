@@ -1,22 +1,22 @@
 Summary - CDBCalculator - Cobertura Consolidada
-  Generated on: 07/16/2025 - 11:53:35
-  Coverage date: 07/16/2025 - 11:52:48 - 07/16/2025 - 11:53:32
+  Generated on: 07/16/2025 - 12:13:28
+  Coverage date: 07/16/2025 - 12:12:41 - 07/16/2025 - 12:13:25
   Parser: MultiReport (5x Cobertura)
   Assemblies: 5
   Classes: 14
   Files: 14
-  Line coverage: 97.6%
+  Line coverage: 100%
   Covered lines: 127
-  Uncovered lines: 3
-  Coverable lines: 130
-  Total lines: 439
-  Branch coverage: 94.1% (32 of 34)
+  Uncovered lines: 0
+  Coverable lines: 127
+  Total lines: 434
+  Branch coverage: 100% (32 of 32)
   Covered branches: 32
-  Total branches: 34
+  Total branches: 32
   Method coverage: 100% (25 of 25)
-  Full method coverage: 92% (23 of 25)
+  Full method coverage: 100% (25 of 25)
   Covered methods: 25
-  Fully covered methods: 23
+  Fully covered methods: 25
   Total methods: 25
 
 Application                                                           100%
@@ -27,8 +27,8 @@ Application                                                           100%
   Application.ServiceCollectionExtensions                             100%
   Application.Validators.CDBCalculator.SimulateCdbCommandValidator    100%
 
-CDBCalculator                                                        94.4%
-  CDBCalculator.Controllers.CdbController                            94.4%
+CDBCalculator                                                         100%
+  CDBCalculator.Controllers.CdbController                             100%
 
 CDBCalculator.Server                                                  100%
   CDBCalculator.Server.IWebHostEnvironmentExtensions                  100%
@@ -39,6 +39,6 @@ Domain                                                                100%
   Domain.Common.Exceptions.Http.BadRequestException                   100%
   Domain.Common.Exceptions.Http.Base.HttpBaseException                100%
 
-Infrastructure                                                       94.7%
+Infrastructure                                                        100%
   Infrastructure.ServiceCollectionExtensions                          100%
-  Infrastructure.Services.CDBCalculator.CdbCalculator                94.1%
+  Infrastructure.Services.CDBCalculator.CdbCalculator                 100%

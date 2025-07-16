@@ -223,7 +223,7 @@ var assemblies = [
   {
     "name": "CDBCalculator",
     "classes": [
-      { "name": "CDBCalculator.Controllers.CdbController", "rp": "CDBCalculator_CdbController.html", "cl": 17, "ucl": 1, "cal": 18, "tl": 65, "cb": 17, "tb": 18, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
+      { "name": "CDBCalculator.Controllers.CdbController", "rp": "CDBCalculator_CdbController.html", "cl": 18, "ucl": 0, "cal": 18, "tl": 65, "cb": 18, "tb": 18, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
     ]},
   {
     "name": "CDBCalculator.Server",
@@ -242,7 +242,7 @@ var assemblies = [
     "name": "Infrastructure",
     "classes": [
       { "name": "Infrastructure.ServiceCollectionExtensions", "rp": "Infrastructure_ServiceCollectionExtensions.html", "cl": 4, "ucl": 0, "cal": 4, "tl": 24, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
-      { "name": "Infrastructure.Services.CDBCalculator.CdbCalculator", "rp": "Infrastructure_CdbCalculator.html", "cl": 32, "ucl": 2, "cal": 34, "tl": 89, "cb": 13, "tb": 14, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
+      { "name": "Infrastructure.Services.CDBCalculator.CdbCalculator", "rp": "Infrastructure_CdbCalculator.html", "cl": 31, "ucl": 0, "cal": 31, "tl": 84, "cb": 12, "tb": 12, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
     ]},
 ];
 
