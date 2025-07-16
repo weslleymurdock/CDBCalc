@@ -127,6 +127,23 @@ public class CdbControllerTests
     }
 
     [Fact]
+    public async Task Simulate_WhenInternalServerErrorHappens_ShouldReturn500()
+    {
+        var response = new SimulateCdbResponse
+        {
+            StatusCode = 500,
+            Message = "Internal Server Error",
+            Success = false
+        };
+        _mediator.Send(Arg.Any<SimulateCdbCommand>(), Arg.Any<CancellationToken>())
+                 .Returns(response);
+        var result = await _controller.Simulate(10, 1000m);
+        var content = Assert.IsType<ContentResult>(result);
+        Assert.Equal(500, content.StatusCode);
+        Assert.Equal("Internal Server Error", content.Content);
+    }
+
+    [Fact]
     public async Task Simulate_WhenUnhandledExceptionOccurs_ShouldReturn500()
     {
         _mediator.Send(Arg.Any<SimulateCdbCommand>(), Arg.Any<CancellationToken>())
