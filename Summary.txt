@@ -1,6 +1,6 @@
 Summary - CDBCalculator - Cobertura Consolidada
-  Generated on: 07/16/2025 - 08:03:34
-  Coverage date: 07/16/2025 - 08:02:49 - 07/16/2025 - 08:03:32
+  Generated on: 07/16/2025 - 08:12:20
+  Coverage date: 07/16/2025 - 08:11:32 - 07/16/2025 - 08:12:18
   Parser: MultiReport (5x Cobertura)
   Assemblies: 5
   Classes: 14
