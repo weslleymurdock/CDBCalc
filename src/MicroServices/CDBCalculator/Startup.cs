@@ -66,8 +66,7 @@ public class Startup(IWebHostEnvironment env)
         app.UseEndpoints(endpoints =>
         {
             endpoints.MapControllers();
-            endpoints.MapGet("/health", () =>
-                Results.Ok(new { status = "Healthy", timestamp = DateTime.UtcNow }));
+            endpoints.MapGet("/health", () => Results.Ok(new { status = "Healthy", timestamp = DateTime.UtcNow }));
         });
     }
 }

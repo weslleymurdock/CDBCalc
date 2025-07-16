@@ -158,8 +158,8 @@ if ($RunMode -eq "Test") {
       -reports:"tests\unit\**\**\TestResults\coverage.xml" `
       -targetdir:$reportDir `
       -reporttypes:Html `
-      -title:"CDBCalculator - Cobertura Consolidada" `  
- 
+      -title:"CDBCalculator - Cobertura Consolidada" `    
+
     Write-Host ""
     Write-Host "+-----------------------------------------+"
     Write-Host "| Relatório gerado: $reportDir"

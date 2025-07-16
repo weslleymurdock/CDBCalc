@@ -6,6 +6,6 @@
  
     <CoverletOutput>$(MSBuildProjectDirectory)\TestResults\coverage.xml</CoverletOutput>
  
-    <UseSourceLink>false</UseSourceLink>
+    <UseSourceLink>true</UseSourceLink>
   </PropertyGroup>
 </Project>

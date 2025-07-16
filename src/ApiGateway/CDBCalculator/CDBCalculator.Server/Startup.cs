@@ -1,4 +1,6 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using System.Diagnostics.CodeAnalysis;
 using Yarp.ReverseProxy;
 
 namespace CDBCalculator.Server;
@@ -75,7 +77,21 @@ public class Startup(IConfiguration config, IWebHostEnvironment env)
         app.UseEndpoints(endpoints =>
         {
             endpoints.MapControllers();
-            endpoints.MapReverseProxy();
+            endpoints.MapReverseProxy(proxyPipeline =>
+            {
+                proxyPipeline.Use(async (context, next) =>
+                {
+                    try
+                    {
+                        await next(); // tenta encaminhar a requisição
+                    }
+                    catch (Exception ex)
+                    {
+                        context.Response.StatusCode = 502;
+                        await context.Response.WriteAsJsonAsync(new { Message = $"Serviço CDB offline: {ex.Message}", StatusCode = 502, Success = false });
+                    }
+                });
+            });
             endpoints.MapFallbackToFile("index.html");
         });
 

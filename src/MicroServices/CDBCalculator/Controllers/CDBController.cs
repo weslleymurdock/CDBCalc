@@ -52,7 +52,7 @@ public class CdbController(ILogger<CdbController> logger, IMediator mediator) : 
                 400 => BadRequest(response),    
                 422 => UnprocessableEntity(response),
                 500 => new ContentResult() { Content = response!.Message, ContentType = "text/plain", StatusCode = 500 },
-                _ => new ContentResult() { Content = response!.Message, ContentType = "text/plain", StatusCode = response!.StatusCode }
+                _ => new ContentResult() { Content = response?.Message, ContentType = "text/plain", StatusCode = response?.StatusCode }
             };
         }
         catch (Exception e)
