@@ -28,12 +28,7 @@ public class CdbCalculator : ICdbCalculator
         {
             throw new CdbException("The value generated for grossValue is not a finite number");
         }
-
-        if (!double.IsFinite(netValue))
-        {
-            throw new CdbException("The value generated for netValue is not a finite number");
-        }
-
+  
         return (totalGross: Math.Round(grossValue, 2), totalNet: Math.Round(netValue, 2));
     }
    
