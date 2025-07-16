@@ -11,7 +11,7 @@ public static class MicroServiceFactory
         var contentRoot = Path.GetFullPath(Path.Combine(
             AppContext.BaseDirectory,
             "..", "..", "..", "..", "..", "..", "..",
-            "src", "MicroServices", "CdbCalculator"
+            "src", "MicroServices", "CDBCalculator"
         ));
 
         var builder = new WebHostBuilder()
